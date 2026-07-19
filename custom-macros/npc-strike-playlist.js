@@ -38,15 +38,17 @@ const CONFIG_NPC_PLAYLIST = {
     //   the "Additional Core UUIDs" / dev context menu), or use the token.
     // - If actorUuid is left null, matching falls back to `npcName`
     //   (case-insensitive, matches the actor's name OR the token's name).
-    actorUuid: null,
-    npcName: "Boss Goblin", // <-- change to your NPC's name
+    actorUuid: "Actor.EItI5u34FIIuZM9W",
+    npcName: null, // fallback name match if actorUuid is null
 
-    // The playlist to start. Use EITHER a playlist name OR its id.
-    playlistName: "Boss Battle", // <-- change to your playlist's name
-    playlistId: null,
+    // What to play. Accepts EITHER:
+    //   - a Playlist UUID (plays the whole playlist), e.g. "Playlist.HfTqktbtnquBAwws"
+    //   - a PlaylistSound UUID (plays just that one track within its playlist),
+    //     e.g. "Playlist.HfTqktbtnquBAwws.PlaylistSound.jYCFkFE3mDFQCvBj"
+    playlistUuid: "Playlist.HfTqktbtnquBAwws.PlaylistSound.jYCFkFE3mDFQCvBj",
 
     // If true (recommended), only the GM client triggers playback, so the
-    // playlist starts exactly once. Set false to let any user trigger it.
+    // music starts exactly once. Set false to let any user trigger it.
     gmOnly: true,
 
     // If true, stop all other currently-playing playlists first.
@@ -62,13 +64,13 @@ const CONFIG_NPC_PLAYLIST = {
         Hooks.off("createChatMessage", globalThis.__npcStrikePlaylistHookId);
     }
 
-    const findPlaylist = () => {
-        if (cfg.playlistId) return game.playlists.get(cfg.playlistId) ?? null;
-        if (cfg.playlistName) {
-            return game.playlists.getName(cfg.playlistName)
-                ?? game.playlists.find((p) => p.name?.toLowerCase() === cfg.playlistName.toLowerCase())
-                ?? null;
-        }
+    // Resolve the configured UUID to { playlist, sound }. `sound` is null when a
+    // whole-playlist UUID was given.
+    const resolveTarget = async () => {
+        const doc = await fromUuid(cfg.playlistUuid).catch(() => null);
+        if (!doc) return null;
+        if (doc instanceof Playlist) return { playlist: doc, sound: null };
+        if (doc.parent instanceof Playlist) return { playlist: doc.parent, sound: doc }; // PlaylistSound
         return null;
     };
 
@@ -103,13 +105,12 @@ const CONFIG_NPC_PLAYLIST = {
 
             if (!matchesNpc(actor, message)) return;
 
-            const playlist = findPlaylist();
-            if (!playlist) {
-                ui.notifications.warn(
-                    `NPC Strike Playlist: playlist "${cfg.playlistName ?? cfg.playlistId}" not found.`,
-                );
+            const target = await resolveTarget();
+            if (!target) {
+                ui.notifications.warn(`NPC Strike Playlist: nothing found at "${cfg.playlistUuid}".`);
                 return;
             }
+            const { playlist, sound } = target;
 
             if (cfg.stopOthers) {
                 for (const p of game.playlists.playing) {
@@ -117,7 +118,12 @@ const CONFIG_NPC_PLAYLIST = {
                 }
             }
 
-            if (!playlist.playing) await playlist.playAll();
+            if (sound) {
+                // Play just the configured track (restart it if already playing).
+                await playlist.playSound(sound);
+            } else if (!playlist.playing) {
+                await playlist.playAll();
+            }
         } catch (err) {
             console.error("NPC Strike Playlist trigger error:", err);
         }
@@ -126,7 +132,5 @@ const CONFIG_NPC_PLAYLIST = {
     globalThis.__npcStrikePlaylistHookId = hookId;
 
     const label = cfg.actorUuid ?? cfg.npcName ?? "(unset)";
-    ui.notifications.info(
-        `NPC Strike Playlist armed: "${label}" -> "${cfg.playlistName ?? cfg.playlistId}".`,
-    );
+    ui.notifications.info(`NPC Strike Playlist armed: "${label}" -> "${cfg.playlistUuid}".`);
 })();

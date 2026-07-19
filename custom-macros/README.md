@@ -21,7 +21,10 @@ a hook instead of editing the system source, it survives PF2e system updates.
 3. Edit the `CONFIG_NPC_PLAYLIST` block at the top:
    - **Which NPC** — set `actorUuid` (most precise) *or* `npcName`. `npcName`
      matches the actor's name or the token's name, case-insensitively.
-   - **Which playlist** — set `playlistName` *or* `playlistId`.
+   - **What to play** — set `playlistUuid`. This accepts either a **Playlist
+     UUID** (plays the whole playlist) or a **PlaylistSound UUID** (plays just
+     that one track), e.g.
+     `Playlist.HfTqktbtnquBAwws.PlaylistSound.jYCFkFE3mDFQCvBj`.
    - `gmOnly` (default `true`) — only the GM client starts the playlist, so it
      plays exactly once. `stopOthers` (default `true`) stops other playing
      playlists first.
