@@ -294,6 +294,223 @@ describe("Damage type conversion", () => {
         });
     });
 
+    describe("names and prose", () => {
+        test("rewrites the name, prose, and inline damage of a document that deals fire damage", () => {
+            const source = {
+                type: "spell",
+                name: "Wall of Fire",
+                system: {
+                    slug: "wall-of-fire",
+                    damage: { "0": { formula: "4d6", type: "fire", category: null } },
+                    description: { value: "<p>A fiery wall. Creatures take @Damage[4d6[fire]] fire damage.</p>" },
+                },
+            };
+            const { updates, proseRewritten } = converter().convertItemSource(source);
+
+            expect(proseRewritten).toBe(true);
+            expect(updates.name).toBe("Wall of Acid");
+            expect(updates["system.damage.0.type"]).toBe("acid");
+            expect(updates["system.description.value"]).toBe(
+                "<p>An acidic wall. Creatures take @Damage[4d6[acid]] acid damage.</p>",
+            );
+        });
+
+        test("leaves the name and prose of a document without fire mechanics alone", () => {
+            const source = {
+                type: "spell",
+                name: "Faerie Fire",
+                system: {
+                    slug: "faerie-fire",
+                    damage: {},
+                    traits: { value: ["light", "manipulate"] },
+                    description: { value: "<p>A burst of fire-colored light reveals the invisible.</p>" },
+                },
+            };
+            const { updates, changes, proseRewritten } = converter().convertItemSource(source);
+
+            expect(proseRewritten).toBe(false);
+            expect(changes).toBe(0);
+            expect(updates).toEqual({});
+        });
+
+        test("treats an inline damage expression as reason enough to rewrite prose", () => {
+            const source = {
+                type: "action",
+                name: "Fiery Breath",
+                system: { slug: "fiery-breath", description: { value: "<p>Deals @Damage[4d6[fire]] damage.</p>" } },
+            };
+            const { updates, proseRewritten } = converter().convertItemSource(source);
+
+            expect(proseRewritten).toBe(true);
+            expect(updates.name).toBe("Acidic Breath");
+            expect(updates["system.description.value"]).toBe("<p>Deals @Damage[4d6[acid]] damage.</p>");
+        });
+
+        test("converts persistent damage expressions without duplicating the category", () => {
+            const source = {
+                type: "action",
+                name: "Searing Strike",
+                system: { slug: "searing-strike", description: { value: "<p>@Damage[1d10[persistent,fire]].</p>" } },
+            };
+            const { updates } = converter().convertItemSource(source);
+
+            expect(updates["system.description.value"]).toBe("<p>@Damage[1d10[persistent,acid]].</p>");
+        });
+
+        test("leaves UUID links untouched, since the documents they point at are not renamed", () => {
+            const source = {
+                type: "feat",
+                name: "Fire Savvy",
+                system: {
+                    slug: "fire-savvy",
+                    description: {
+                        value: "<p>Like @UUID[Compendium.pf2e.spells.Item.Fireball]{Fireball}, but fire is safer.</p>",
+                    },
+                    rules: [{ key: "RollOption", option: "item:damage:type:fire" }],
+                },
+            };
+            const { updates } = converter().convertItemSource(source);
+
+            expect(updates.name).toBe("Acid Savvy");
+            expect(updates["system.description.value"]).toBe(
+                "<p>Like @UUID[Compendium.pf2e.spells.Item.Fireball]{Fireball}, but acid is safer.</p>",
+            );
+        });
+
+        test("rewrites an enricher's label but not its payload", () => {
+            const source = {
+                type: "action",
+                name: "Flame Jet",
+                system: {
+                    slug: "flame-jet",
+                    description: { value: "<p>@Damage[2d6[fire]]{2d6 fire damage} and @Check[reflex|dc:20]</p>" },
+                },
+            };
+            const { updates } = converter().convertItemSource(source);
+
+            expect(updates["system.description.value"]).toBe(
+                "<p>@Damage[2d6[acid]]{2d6 acid damage} and @Check[reflex|dc:20]</p>",
+            );
+        });
+
+        test("does not rewrite words inside HTML tags", () => {
+            const source = {
+                type: "action",
+                name: "Ignite",
+                system: {
+                    slug: "ignite",
+                    description: { value: '<p class="fire-effect" title="fire">Deals @Damage[1d6[fire]].</p>' },
+                },
+            };
+            const { updates } = converter().convertItemSource(source);
+
+            expect(updates["system.description.value"]).toBe(
+                '<p class="fire-effect" title="fire">Deals @Damage[1d6[acid]].</p>',
+            );
+        });
+
+        test("preserves capitalization and leaves words that only end in fire alone", () => {
+            const source = {
+                type: "action",
+                name: "Firearm Volley",
+                system: {
+                    slug: "firearm-volley",
+                    description: {
+                        value: "<p>FIRE and Fire and fire, but not wildfire, firearm, or campfire. @Damage[1d6[fire]]</p>",
+                    },
+                },
+            };
+            const { updates } = converter().convertItemSource(source);
+
+            // "Firearm" is a listed exception, so the name is untouched
+            expect(updates.name).toBeUndefined();
+            expect(updates["system.description.value"]).toBe(
+                "<p>ACID and Acid and acid, but not wildfire, firearm, or campfire. @Damage[1d6[acid]]</p>",
+            );
+        });
+
+        test("converts compounds that begin with the damage type, keeping their remainder", () => {
+            const source = {
+                type: "spell",
+                name: "Fireball",
+                system: {
+                    slug: "fireball",
+                    damage: { "0": { formula: "6d6", type: "fire", category: null } },
+                    description: { value: "<p>A FIREBALL and a Firestorm, but fireworks are safe.</p>" },
+                },
+            };
+            const { updates } = converter().convertItemSource(source);
+
+            expect(updates.name).toBe("Acidball");
+            expect(updates["system.description.value"]).toBe(
+                "<p>An ACIDBALL and an Acidstorm, but fireworks are safe.</p>",
+            );
+        });
+
+        test("corrects the indefinite article when the replacement's initial sound differs", () => {
+            const source = {
+                type: "action",
+                name: "Ignite",
+                system: {
+                    slug: "ignite",
+                    description: {
+                        value: "<p>A fire elemental hurls a fiery bolt. An icicle melts. @Damage[1d6[fire]]</p>",
+                    },
+                },
+            };
+            const { updates } = converter().convertItemSource(source);
+
+            expect(updates["system.description.value"]).toBe(
+                "<p>An acid elemental hurls an acidic bolt. An icicle melts. @Damage[1d6[acid]]</p>",
+            );
+        });
+
+        test("pins a derived slug when renaming, so rule element predicates keep working", () => {
+            const source = {
+                type: "feat",
+                name: "Fire Savvy",
+                system: { slug: null, rules: [{ key: "RollOption", option: "item:damage:type:fire" }] },
+            };
+            const { updates } = converter().convertItemSource(source);
+
+            expect(updates.name).toBe("Acid Savvy");
+            expect(updates["system.slug"]).toBe("fire-savvy");
+        });
+
+        test("leaves an explicit slug as it is", () => {
+            const source = {
+                type: "feat",
+                name: "Fire Savvy",
+                system: { slug: "fire-savvy", rules: [{ key: "RollOption", option: "item:damage:type:fire" }] },
+            };
+            const { updates } = converter().convertItemSource(source);
+
+            expect(updates["system.slug"]).toBeUndefined();
+        });
+
+        test("leaves names and prose alone when prose rewriting is disabled", () => {
+            const source = {
+                type: "spell",
+                name: "Wall of Fire",
+                system: {
+                    slug: "wall-of-fire",
+                    damage: { "0": { formula: "4d6", type: "fire", category: null } },
+                    description: { value: "<p>Deals @Damage[4d6[fire]] fire damage.</p>" },
+                },
+            };
+            const { updates, proseRewritten } = new DamageTypeConverter({
+                from: "fire",
+                to: "acid",
+                prose: false,
+            }).convertItemSource(source);
+
+            expect(proseRewritten).toBe(false);
+            expect(updates.name).toBeUndefined();
+            // Inline damage is mechanical data, so it is converted even with prose rewriting off
+            expect(updates["system.description.value"]).toBe("<p>Deals @Damage[4d6[acid]] fire damage.</p>");
+        });
+    });
+
     describe("actors", () => {
         test("converts IWR entries along with their exceptions and doubleVs", () => {
             const source = {
@@ -319,6 +536,38 @@ describe("Damage type conversion", () => {
             const { updates } = converter().convertActorSource(source);
 
             expect(updates).toEqual({ "system.traits.value": ["acid", "elemental"] });
+        });
+
+        test("rewrites an actor's name, token name, and notes when it is mechanically fire", () => {
+            const source = {
+                name: "Fire Giant",
+                prototypeToken: { name: "Fire Giant" },
+                system: {
+                    traits: { value: ["fire", "giant"] },
+                    details: { publicNotes: "<p>A giant wreathed in flames and fiery rage.</p>" },
+                },
+            };
+            const { updates, proseRewritten } = converter().convertActorSource(source);
+
+            expect(proseRewritten).toBe(true);
+            expect(updates.name).toBe("Acid Giant");
+            expect(updates["prototypeToken.name"]).toBe("Acid Giant");
+            expect(updates["system.traits.value"]).toEqual(["acid", "giant"]);
+            expect(updates["system.details.publicNotes"]).toBe("<p>A giant wreathed in acid and acidic rage.</p>");
+        });
+
+        test("leaves an actor's prose alone when it has no fire mechanics", () => {
+            const source = {
+                name: "Fire Watcher",
+                system: {
+                    traits: { value: ["human"] },
+                    details: { publicNotes: "<p>Tends the fire at the inn.</p>" },
+                },
+            };
+            const { updates, proseRewritten } = converter().convertActorSource(source);
+
+            expect(proseRewritten).toBe(false);
+            expect(updates).toEqual({});
         });
 
         test("reports no changes for an actor without fire references", () => {

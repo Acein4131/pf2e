@@ -1,5 +1,6 @@
 import type { ActorPF2e } from "@actor";
 import type { ItemPF2e } from "@item";
+import type { ScenePF2e } from "@scene";
 import type { DamageType } from "@system/damage/types.ts";
 import { DAMAGE_TYPES } from "@system/damage/values.ts";
 import { Progress } from "@system/progress.ts";
@@ -11,6 +12,8 @@ interface ConvertDamageTypeOptions {
     from?: DamageType;
     /** The damage type to replace it with, defaulting to acid */
     to?: DamageType;
+    /** Whether to rewrite names and prose as well as mechanical data, defaulting to true */
+    prose?: boolean;
     /** Report what would change without writing anything */
     dryRun?: boolean;
 }
@@ -25,9 +28,16 @@ interface ActorConversion {
     itemUpdates: IdentifiedUpdate[];
 }
 
+/** A scene and the renames to be applied to the tokens placed on it */
+interface SceneConversion {
+    scene: ScenePF2e;
+    tokenUpdates: IdentifiedUpdate[];
+}
+
 interface ConversionPlan {
     actors: ActorConversion[];
     items: IdentifiedUpdate[];
+    scenes: SceneConversion[];
     /** The number of documents with at least one change */
     documents: number;
     /** The number of individual values changed */
@@ -37,9 +47,10 @@ interface ConversionPlan {
 /**
  * Replace every reference to one damage type with another throughout the world's actors, items, and unlinked tokens.
  *
- * Damage types, traits, IWR entries, persistent damage, and the rule elements driving them are all converted. Names and
- * descriptions are deliberately left untouched: a document is only changed if its structured data actually references
- * the damage type, so entries that merely contain the word—*Faerie Fire*, for instance—are unaffected.
+ * Mechanical data is always converted: damage types, traits, IWR entries, persistent damage, inline damage expressions
+ * in descriptions, and the rule elements driving all of them. Names and prose are rewritten too, but only for documents
+ * that carry at least one such mechanical reference, so entries that merely contain the word—*Faerie Fire*, a *Fire
+ * Opal*—are left alone entirely.
  */
 async function convertDamageType(options: ConvertDamageTypeOptions = {}): Promise<void> {
     const localize = localizer("PF2E.Macro.ConvertDamageType");
@@ -66,7 +77,7 @@ async function convertDamageType(options: ConvertDamageTypeOptions = {}): Promis
         to: damageTypeLabel(to),
     };
 
-    const plan = await buildPlan({ from, to });
+    const plan = await buildPlan({ from, to, prose: options.prose ?? true });
     if (plan.changes === 0) {
         ui.notifications.info(localize("NoMatches", labels));
         return;
@@ -80,7 +91,7 @@ async function convertDamageType(options: ConvertDamageTypeOptions = {}): Promis
 
     const confirmed = await foundry.applications.api.DialogV2.confirm({
         window: { title: localize("Title") },
-        content: localize("Confirm", summary),
+        content: localize(options.prose === false ? "ConfirmMechanical" : "Confirm", summary),
         yes: { default: false },
     });
     if (!confirmed) return;
@@ -93,9 +104,18 @@ async function convertDamageType(options: ConvertDamageTypeOptions = {}): Promis
 }
 
 /** Scan every world document for references to the source damage type. */
-async function buildPlan({ from, to }: { from: DamageType; to: DamageType }): Promise<ConversionPlan> {
-    const converter = new DamageTypeConverter({ from, to });
-    const plan: ConversionPlan = { actors: [], items: [], documents: 0, changes: 0 };
+async function buildPlan({
+    from,
+    to,
+    prose,
+}: Required<Pick<ConvertDamageTypeOptions, "prose">> & {
+    from: DamageType;
+    to: DamageType;
+}): Promise<ConversionPlan> {
+    const converter = new DamageTypeConverter({ from, to, prose });
+    const plan: ConversionPlan = { actors: [], items: [], scenes: [], documents: 0, changes: 0 };
+    /** Actors whose prose was rewritten, and whose placed tokens should therefore be renamed to match */
+    const renamedActors: Set<string> = new Set();
 
     const convertItems = (items: Iterable<ItemPF2e>): IdentifiedUpdate[] => {
         const updates: IdentifiedUpdate[] = [];
@@ -114,12 +134,13 @@ async function buildPlan({ from, to }: { from: DamageType; to: DamageType }): Pr
         // Yield periodically so the interface keeps painting during a long scan
         if (index % 25 === 24) await new Promise((resolve) => setTimeout(resolve, 0));
 
-        const { updates, changes } = converter.convertActorSource(actor.toObject());
+        const { updates, changes, proseRewritten } = converter.convertActorSource(actor.toObject());
         const itemUpdates = convertItems(actor.items);
         if (changes > 0) {
             plan.documents += 1;
             plan.changes += changes;
         }
+        if (proseRewritten) renamedActors.add(actor.id);
         if (changes > 0 || itemUpdates.length > 0) {
             plan.actors.push({ actor, update: changes > 0 ? updates : null, itemUpdates });
         }
@@ -128,10 +149,21 @@ async function buildPlan({ from, to }: { from: DamageType; to: DamageType }): Pr
     // World items
     plan.items = convertItems(game.items);
 
-    // Unlinked tokens: only their own delta data is converted, since everything else is inherited from the base actor
-    // and will follow from that actor's own conversion.
     for (const scene of game.scenes) {
+        const tokenUpdates: IdentifiedUpdate[] = [];
         for (const token of scene.tokens) {
+            // Placed tokens carry their own name, which must follow the actor they were made from
+            if (token.actorId && renamedActors.has(token.actorId)) {
+                const converted = converter.convertPlainName(token.name);
+                if (converted !== token.name) {
+                    tokenUpdates.push({ _id: token.id, name: converted });
+                    plan.documents += 1;
+                    plan.changes += 1;
+                }
+            }
+
+            // Unlinked tokens: only their own delta data is converted, since everything else is inherited from the
+            // base actor and will follow from that actor's own conversion.
             if (token.actorLink) continue;
             const actor = token.actor;
             const deltaSource = token.delta?._source;
@@ -148,6 +180,7 @@ async function buildPlan({ from, to }: { from: DamageType; to: DamageType }): Pr
                 plan.actors.push({ actor, update: changes > 0 ? updates : null, itemUpdates });
             }
         }
+        if (tokenUpdates.length > 0) plan.scenes.push({ scene, tokenUpdates });
     }
 
     return plan;
@@ -155,7 +188,7 @@ async function buildPlan({ from, to }: { from: DamageType; to: DamageType }): Pr
 
 /** Write a conversion plan to the world, returning the number of documents that could not be updated. */
 async function applyPlan(plan: ConversionPlan, label: string): Promise<number> {
-    const progress = new Progress({ label, max: plan.actors.length + 1 });
+    const progress = new Progress({ label, max: plan.actors.length + plan.scenes.length + 1 });
     let failures = 0;
 
     const attempt = async (description: string, update: () => Promise<unknown>): Promise<void> => {
@@ -182,6 +215,13 @@ async function applyPlan(plan: ConversionPlan, label: string): Promise<number> {
 
     if (plan.items.length > 0) {
         await attempt("world items", () => game.items.documentClass.updateDocuments(plan.items, { noHook: true }));
+    }
+
+    for (const { scene, tokenUpdates } of plan.scenes) {
+        await attempt(`tokens of ${scene.uuid}`, () =>
+            scene.updateEmbeddedDocuments("Token", tokenUpdates, { noHook: true }),
+        );
+        progress.advance();
     }
     progress.close();
 
