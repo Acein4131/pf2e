@@ -3267,6 +3267,18 @@
         "MAPAbbreviationLabel": "MAP {penalty}",
         "MAPAbbreviationValueLabel": "{value} (MAP {penalty})",
         "Macro": {
+            "ConvertDamageType": {
+                "Complete": "Converted {changes} values across {documents} documents from {from} to {to}.",
+                "Confirm": "<p>This will change <strong>{changes}</strong> values across <strong>{documents}</strong> documents from <strong>{from}</strong> to <strong>{to}</strong>, including damage types, traits, immunities, weaknesses, resistances, and persistent damage.</p><p>Names and descriptions are left unchanged. This cannot be undone: back up your world before continuing.</p>",
+                "Converting": "Converting {from} damage to {to}…",
+                "Failures": "{count} documents could not be updated. See the console for details.",
+                "InvalidType": "\"{type}\" is not a recognized damage type.",
+                "NoMatches": "No {from} damage was found in this world.",
+                "NotGM": "Only a GM can convert damage types.",
+                "Preview": "{changes} values across {documents} documents would change from {from} to {to}.",
+                "SameType": "The damage type being replaced and its replacement must be different.",
+                "Title": "Convert Damage Type"
+            },
             "OptionToggle": {
                 "Notification": "{toggle} has been toggled {state}.",
                 "Off": "OFF",

@@ -46,6 +46,7 @@ import type { PF2ECONFIG, StatusEffectIconTheme } from "@scripts/config/index.ts
 import type { DicePF2e } from "@scripts/dice.ts";
 import type {
     calculateXP,
+    convertDamageType,
     editPersistent,
     launchTravelSheet,
     perceptionForSelected,
@@ -171,6 +172,7 @@ interface GamePF2e extends Game<
         gm: {
             calculateXP: typeof calculateXP;
             checkPrompt: typeof checkPrompt;
+            convertDamageType: typeof convertDamageType;
             editPersistent: typeof editPersistent;
             launchTravelSheet: typeof launchTravelSheet;
             perceptionForSelected: typeof perceptionForSelected;

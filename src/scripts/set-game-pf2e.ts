@@ -12,6 +12,7 @@ import { RuleElement, RuleElements } from "@module/rules/index.ts";
 import { DicePF2e } from "@scripts/dice.ts";
 import {
     calculateXP,
+    convertDamageType,
     editPersistent,
     encouragingWords,
     launchTravelSheet,
@@ -95,6 +96,7 @@ export const SetGamePF2e = {
             gm: {
                 calculateXP,
                 checkPrompt,
+                convertDamageType,
                 editPersistent,
                 launchTravelSheet,
                 perceptionForSelected,

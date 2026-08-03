@@ -1,3 +1,4 @@
+export { convertDamageType } from "./convert-damage-type/index.ts";
 export { editPersistent } from "./edit-persistent.ts";
 export { encouragingWords } from "./encouraging-words.ts";
 export { rollActionMacro, rollItemMacro } from "./hotbar.ts";

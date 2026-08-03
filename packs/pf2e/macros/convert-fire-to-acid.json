@@ -1,0 +1,11 @@
+{
+    "_id": "awXjID2mruMMLwcH",
+    "command": "game.pf2e.gm.convertDamageType({ from: \"fire\", to: \"acid\" });",
+    "img": "systems/pf2e/icons/spells/acidic-burst.webp",
+    "name": "Convert Fire to Acid",
+    "ownership": {
+        "default": 0
+    },
+    "scope": "global",
+    "type": "script"
+}
