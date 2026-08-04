@@ -8,7 +8,9 @@ import globals from "globals";
 import tseslint from "typescript-eslint";
 
 export default defineConfig(
-    { ignores: ["dist/**/*", "packs/**/*", "static/lib/**/*", "*.mjs"] },
+    // Standalone macros are pasted into Foundry's macro editor, which wraps them in an async function body: their
+    // top-level `await` and `return` statements parse there but in neither of ESLint's script nor module modes.
+    { ignores: ["dist/**/*", "packs/**/*", "static/lib/**/*", "build/standalone-macros/**/*", "*.mjs"] },
     { plugins: { prettier, json } },
     {
         files: ["**/*.ts", "**/*.mts"],
