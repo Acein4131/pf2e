@@ -24,19 +24,34 @@ interface SourceConversion {
 const IWR_RULE_KEYS: Set<string> = new Set(["Immunity", "Resistance", "Weakness"]);
 
 /**
- * Second-to-last segments of a roll option after which a bare damage type or trait name may appear. Requiring one of
- * these keeps unrelated options—`spell:faerie-fire`, `feature:fire-lung`—from being rewritten: only a final segment
- * that is exactly the damage type, qualified by one of these, is a reference to the type itself.
+ * Second-to-last segments of a roll option after which a *document's own slug* appears rather than a damage type.
+ *
+ * A roll option whose final segment is exactly the damage type is taken to reference that type: that covers the
+ * built-in forms (`damage:type:fire`, `item:trait:fire`, `self:condition:persistent-damage:fire`) and equally the
+ * open-ended ones a `ChoiceSet` mints from its own roll option (`kinetic-gate:fire`, `elemental-assault:fire`), which
+ * no fixed list could enumerate. These qualifiers are the exception, so that a document actually named "Fire" is not
+ * mistaken for the damage type. Options that merely end in a similar *word* — `spell:faerie-fire`,
+ * `feature:fire-lung` — never match in the first place, because the damage type must be a whole segment.
  */
-const OPTION_QUALIFIERS: Set<string> = new Set([
-    "damage-type",
-    "exception",
-    "immunity",
-    "resistance",
-    "trait",
-    "traits",
-    "type",
-    "weakness",
+const SLUG_QUALIFIERS: Set<string> = new Set([
+    "action",
+    "ancestry",
+    "armor",
+    "background",
+    "class",
+    "condition",
+    "consumable",
+    "deity",
+    "effect",
+    "equipment",
+    "feat",
+    "feature",
+    "heritage",
+    "item",
+    "shield",
+    "slug",
+    "spell",
+    "weapon",
 ]);
 
 /** `property` values of alteration rule elements whose `value` holds a damage type or trait. */
@@ -164,12 +179,6 @@ class DamageTypeConverter {
     /** Words beginning with the source type's name that do not refer to it, and so are left alone */
     readonly #compoundExceptions: Set<string>;
 
-    /**
-     * Roll option prefixes set by `ChoiceSet` rule elements offering the source damage type: options built from them
-     * (`elemental-assault:fire`) must follow the converted selection even though their prefix is item-specific.
-     */
-    #choiceSetPrefixes: Set<string> = new Set();
-
     constructor({ from, to, prose = true }: DamageTypeConversion) {
         this.from = from;
         this.to = to;
@@ -246,7 +255,6 @@ class DamageTypeConverter {
         const system = source.system;
         if (!R.isPlainObject(system)) return { updates, changes: 0, proseRewritten: false };
 
-        this.#collectChoiceSetPrefixes(system.rules);
         const converted = this.#convertNode(fu.deepClone(system));
         if (!R.isPlainObject(converted)) return { updates, changes: 0, proseRewritten: false };
 
@@ -386,25 +394,6 @@ class DamageTypeConverter {
 
     #reset(): void {
         this.changes = 0;
-        this.#choiceSetPrefixes = new Set();
-    }
-
-    /**
-     * Note the roll option prefixes of any `ChoiceSet` offering the source damage type, so that predicates testing the
-     * resulting selection are converted alongside it.
-     */
-    #collectChoiceSetPrefixes(rules: unknown): void {
-        if (!Array.isArray(rules)) return;
-        for (const rule of rules) {
-            if (!R.isPlainObject(rule) || rule.key !== "ChoiceSet") continue;
-            if (typeof rule.rollOption !== "string" || rule.rollOption.length === 0) continue;
-            const choices = rule.choices;
-            if (!Array.isArray(choices)) continue;
-            const offersSourceType = choices.some((choice) =>
-                R.isPlainObject(choice) ? choice.value === this.from : choice === this.from,
-            );
-            if (offersSourceType) this.#choiceSetPrefixes.add(rule.rollOption);
-        }
     }
 
     /**
@@ -513,19 +502,16 @@ class DamageTypeConverter {
     }
 
     /**
-     * Convert a roll option whose final segment names the source damage type. The preceding segment must identify the
-     * final one as a damage type or trait, which leaves options that merely end in a similar word untouched.
+     * Convert a roll option whose final segment names the source damage type. Requiring a whole segment leaves options
+     * that merely end in a similar word untouched, and a preceding qualifier that introduces a document's own slug
+     * rules the option out entirely.
      */
     #convertRollOption(option: string): string {
         if (!option.includes(":") || !option.endsWith(`:${this.from}`)) return option;
         const segments = option.split(":");
-        const qualifier = segments.at(-2) ?? "";
-        const prefix = segments.slice(0, -1).join(":");
-        if (!OPTION_QUALIFIERS.has(qualifier) && !this.#choiceSetPrefixes.has(prefix)) {
-            return option;
-        }
+        if (SLUG_QUALIFIERS.has(segments.at(-2) ?? "")) return option;
         this.changes += 1;
-        return `${prefix}:${this.to}`;
+        return `${segments.slice(0, -1).join(":")}:${this.to}`;
     }
 
     /** Convert a `ChoiceSet` label, whether it is a localization key or literal text. */

@@ -135,6 +135,57 @@ describe("Damage type conversion", () => {
 
             expect(changes).toBe(0);
         });
+
+        test("converts any roll option whose final segment is the damage type", () => {
+            const source = {
+                type: "feat",
+                system: {
+                    slug: "many-options",
+                    rules: [
+                        // Built-in forms
+                        { key: "RollOption", option: "damage:type:fire" },
+                        { key: "RollOption", option: "item:damage:fire" },
+                        { key: "RollOption", option: "item:damage:persistent:fire" },
+                        { key: "RollOption", option: "self:condition:persistent-damage:fire" },
+                        { key: "RollOption", option: "parent:origin:item:tag:fire" },
+                        { key: "RollOption", option: "nemesis-immunity:fire" },
+                        // Options a Choice Set mints from its own roll option, including in another item
+                        { key: "RollOption", option: "kinetic-gate:fire" },
+                        { key: "RollOption", option: "feature:bloodline:elemental:fire" },
+                    ],
+                },
+            };
+            const { updates } = converter().convertItemSource(source);
+
+            expect((updates["system.rules"] as { option: string }[]).map((r) => r.option)).toEqual([
+                "damage:type:acid",
+                "item:damage:acid",
+                "item:damage:persistent:acid",
+                "self:condition:persistent-damage:acid",
+                "parent:origin:item:tag:acid",
+                "nemesis-immunity:acid",
+                "kinetic-gate:acid",
+                "feature:bloodline:elemental:acid",
+            ]);
+        });
+
+        test("leaves an option alone when its final segment is a document's own slug", () => {
+            const source = {
+                type: "feat",
+                system: {
+                    slug: "slug-options",
+                    rules: [
+                        // A homebrew document actually named "Fire" would produce these
+                        { key: "RollOption", option: "self:effect:fire" },
+                        { key: "RollOption", option: "item:slug:fire" },
+                        { key: "RollOption", option: "spell:fire" },
+                    ],
+                },
+            };
+            const { changes } = converter().convertItemSource(source);
+
+            expect(changes).toBe(0);
+        });
     });
 
     describe("rule elements", () => {
