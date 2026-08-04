@@ -11,30 +11,45 @@ import { DamageTypeConverter } from "@scripts/macros/convert-damage-type/convers
 
 const MACRO_PATH = path.resolve(__dirname, "../../build/standalone-macros/convert-damage-type.js");
 
-/** Load the macro's converter by evaluating everything above its executable tail. */
-function loadStandaloneConverter(): new (options: { from: string; to: string; prose?: boolean }) => {
+interface StandaloneConverterInstance {
     convertItemSource(source: object): { updates: Record<string, unknown>; changes: number; proseRewritten: boolean };
     convertActorSource(source: object): { updates: Record<string, unknown>; changes: number; proseRewritten: boolean };
     convertPlainName(name: string): string;
-} {
+}
+
+interface FakePack {
+    metadata: { type: string; packageType: string; label: string; id: string };
+}
+
+interface StandaloneExports {
+    DamageTypeConverter: new (options: { from: string; to: string; prose?: boolean }) => StandaloneConverterInstance;
+    packsInScope: (scope: string) => FakePack[];
+}
+
+/** Load the macro's definitions by evaluating everything above its executable tail. */
+function loadStandalone(packs: FakePack[] = []): StandaloneExports {
     const contents = fs.readFileSync(MACRO_PATH, "utf-8");
     const tail = contents.indexOf("if (!game.user.isGM) {");
     if (tail === -1) throw new Error("Could not find the macro's executable tail");
     const definitions = contents.slice(0, tail);
 
-    // The macro reaches for two globals that a Foundry client provides
-    const factory = new Function("foundry", "game", `${definitions}\nreturn DamageTypeConverter;`) as (
-        foundryGlobal: object,
-        gameGlobal: object,
-    ) => ReturnType<typeof loadStandaloneConverter>;
+    // The macro reaches for globals that a Foundry client provides
+    const factory = new Function(
+        "foundry",
+        "game",
+        `${definitions}\nreturn { DamageTypeConverter, packsInScope };`,
+    ) as (foundryGlobal: object, gameGlobal: object) => StandaloneExports;
 
     return factory(
         { utils: { deepClone: (value: unknown) => fu.deepClone(value) } },
-        { pf2e: { system: { sluggify } } },
+        {
+            pf2e: { system: { sluggify } },
+            packs: { filter: (predicate: (pack: FakePack) => boolean) => packs.filter(predicate) },
+        },
     );
 }
 
-const StandaloneConverter = loadStandaloneConverter();
+const StandaloneConverter = loadStandalone().DamageTypeConverter;
 
 let cachedSources: { file: string; source: Record<string, unknown> }[] | null = null;
 
@@ -100,6 +115,33 @@ describe("Standalone damage type conversion macro", () => {
         }
 
         expect(mismatches).toEqual([]);
+    });
+
+    describe("compendium scope", () => {
+        const packs: FakePack[] = [
+            { metadata: { type: "Item", packageType: "world", label: "World Items", id: "world.items" } },
+            { metadata: { type: "Actor", packageType: "world", label: "World Actors", id: "world.actors" } },
+            { metadata: { type: "Item", packageType: "system", label: "Equipment", id: "pf2e.equipment" } },
+            { metadata: { type: "Actor", packageType: "module", label: "Module Bestiary", id: "mod.bestiary" } },
+            { metadata: { type: "JournalEntry", packageType: "system", label: "Journals", id: "pf2e.journals" } },
+            { metadata: { type: "Macro", packageType: "system", label: "Macros", id: "pf2e.macros" } },
+        ];
+        const scoped = (scope: string): string[] =>
+            loadStandalone(packs)
+                .packsInScope(scope)
+                .map((p) => p.metadata.id);
+
+        test("takes no packs when set to none", () => {
+            expect(scoped("none")).toEqual([]);
+        });
+
+        test("takes only this world's actor and item packs when set to world", () => {
+            expect(scoped("world")).toEqual(["world.items", "world.actors"]);
+        });
+
+        test("takes system and module packs too when set to all, but never a non-document pack", () => {
+            expect(scoped("all")).toEqual(["world.items", "world.actors", "pf2e.equipment", "mod.bestiary"]);
+        });
     });
 
     test("it carries no import or export statements, which a Foundry macro cannot use", () => {

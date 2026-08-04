@@ -3271,13 +3271,18 @@
                 "Complete": "Converted {changes} values across {documents} documents from {from} to {to}.",
                 "Confirm": "<p>This will change <strong>{changes}</strong> values across <strong>{documents}</strong> documents from <strong>{from}</strong> to <strong>{to}</strong>, including damage types, traits, immunities, weaknesses, resistances, and persistent damage.</p><p>Names, descriptions, and token names are rewritten as well, but only for documents that actually reference {from}: an entry that merely contains the word is left alone.</p><p>This cannot be undone: back up your world before continuing.</p>",
                 "ConfirmMechanical": "<p>This will change <strong>{changes}</strong> values across <strong>{documents}</strong> documents from <strong>{from}</strong> to <strong>{to}</strong>, including damage types, traits, immunities, weaknesses, resistances, and persistent damage.</p><p>Names and descriptions are left unchanged. This cannot be undone: back up your world before continuing.</p>",
+                "ConfirmPacks": "<p>This includes <strong>{packs}</strong> compendium packs, which are unlocked to be written to and locked again afterward.</p>",
+                "ConfirmPacksExternal": "<p>This includes <strong>{packs}</strong> compendium packs, which are unlocked to be written to and locked again afterward. <strong>{external}</strong> of them belong to the system or to a module rather than to this world, and their contents will be replaced the next time that package is updated.</p>",
                 "Converting": "Converting {from} damage to {to}…",
+                "ConvertingPack": "Converting {pack}…",
                 "Failures": "{count} documents could not be updated. See the console for details.",
                 "InvalidType": "\"{type}\" is not a recognized damage type.",
                 "NoMatches": "No {from} damage was found in this world.",
                 "NotGM": "Only a GM can convert damage types.",
                 "Preview": "{changes} values across {documents} documents would change from {from} to {to}.",
                 "SameType": "The damage type being replaced and its replacement must be different.",
+                "Scanning": "Scanning compendiums…",
+                "ScanningPack": "Scanning {pack}…",
                 "Title": "Convert Damage Type"
             },
             "OptionToggle": {

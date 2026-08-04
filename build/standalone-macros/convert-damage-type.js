@@ -21,6 +21,16 @@ const FROM = "fire";
 const TO = "acid";
 /** Set to false to convert mechanical data only, leaving names and prose as they are. */
 const PROSE = true;
+/**
+ * Which compendium packs to convert alongside the world's own documents:
+ * - "none": world documents only
+ * - "world": also compendiums belonging to this world
+ * - "all":  also those belonging to the system and to modules
+ *
+ * Note that system and module packs are replaced wholesale whenever that package is updated, so a conversion written
+ * into them is lost at that point and has to be run again.
+ */
+const PACKS = "all";
 /** Set to true to report what would change without writing anything. */
 const DRY_RUN = false;
 
@@ -604,15 +614,24 @@ function createProgress(label, max) {
         const notification = ui.notifications.info(label, { progress: true });
         let value = 0;
         return {
-            advance: () => {
+            advance: (stepLabel = label) => {
                 value = Math.min(value + 1, max);
-                notification.update({ message: label, pct: max === 0 ? 1 : value / max });
+                notification.update({ message: stepLabel, pct: max === 0 ? 1 : value / max });
             },
             close: () => notification.update({ message: "", pct: 1 }),
         };
     } catch {
         return { advance: () => {}, close: () => {} };
     }
+}
+
+/** Split a list into batches, so that a very large update is not sent as a single request. */
+function chunk(values, size) {
+    const batches = [];
+    for (let index = 0; index < values.length; index += size) {
+        batches.push(values.slice(index, index + size));
+    }
+    return batches;
 }
 
 /** The localized name of a damage type, falling back to the type itself for an unlabeled one. */
@@ -622,9 +641,9 @@ function damageTypeLabel(type) {
 }
 
 /** Scan every world document for references to the source damage type. */
-async function buildPlan({ from, to, prose }) {
+async function buildPlan({ from, to, prose, packs }) {
     const converter = new DamageTypeConverter({ from, to, prose });
-    const plan = { actors: [], items: [], scenes: [], documents: 0, changes: 0 };
+    const plan = { actors: [], items: [], scenes: [], packs: [], documents: 0, changes: 0 };
     /** Actors whose prose was rewritten, and whose placed tokens should therefore be renamed to match */
     const renamedActors = new Set();
 
@@ -694,12 +713,79 @@ async function buildPlan({ from, to, prose }) {
         if (tokenUpdates.length > 0) plan.scenes.push({ scene, tokenUpdates });
     }
 
+    await scanPacks(plan, converter, packs);
+
     return plan;
+}
+
+/** The actor and item compendiums in scope, in a stable order. */
+function packsInScope(scope) {
+    if (scope === "none") return [];
+    return game.packs.filter(
+        (p) =>
+            ["Actor", "Item"].includes(p.metadata.type) && (scope === "all" || p.metadata.packageType === "world"),
+    );
+}
+
+/**
+ * Scan compendium packs, loading each in turn.
+ *
+ * Only the documents that need changing are kept, so the rest can be released once the pack has been read: a full
+ * system's worth of packs is far too much to hold in memory at once.
+ */
+async function scanPacks(plan, converter, scope) {
+    const packs = packsInScope(scope);
+    if (packs.length === 0) return;
+
+    const progress = createProgress("Scanning compendiums…", packs.length);
+    for (const pack of packs) {
+        progress.advance(`Scanning ${pack.metadata.label}…`);
+        const entry = { pack, actors: [], items: [] };
+
+        let documents = [];
+        try {
+            documents = await pack.getDocuments();
+        } catch (error) {
+            console.warn(`Convert Damage Type | Could not read compendium ${pack.metadata.id}:`, error);
+        }
+
+        for (const document of documents) {
+            if ("prototypeToken" in document) {
+                const { updates, changes } = converter.convertActorSource(document.toObject());
+                const itemUpdates = [];
+                for (const item of document.items) {
+                    const result = converter.convertItemSource(item.toObject());
+                    if (result.changes === 0) continue;
+                    itemUpdates.push({ ...result.updates, _id: item.id });
+                    plan.documents += 1;
+                    plan.changes += result.changes;
+                }
+                if (changes > 0) {
+                    plan.documents += 1;
+                    plan.changes += changes;
+                }
+                if (changes > 0 || itemUpdates.length > 0) {
+                    entry.actors.push({ actor: document, update: changes > 0 ? updates : null, itemUpdates });
+                }
+            } else {
+                const { updates, changes } = converter.convertItemSource(document.toObject());
+                if (changes === 0) continue;
+                entry.items.push({ ...updates, _id: document.id });
+                plan.documents += 1;
+                plan.changes += changes;
+            }
+        }
+
+        if (entry.actors.length > 0 || entry.items.length > 0) plan.packs.push(entry);
+        // Yield between packs so the progress bar keeps painting through a long scan
+        await new Promise((resolve) => setTimeout(resolve, 0));
+    }
+    progress.close();
 }
 
 /** Write a conversion plan to the world, returning the number of documents that could not be updated. */
 async function applyPlan(plan, label) {
-    const progress = createProgress(label, plan.actors.length + plan.scenes.length + 1);
+    const progress = createProgress(label, plan.actors.length + plan.scenes.length + plan.packs.length + 1);
     let failures = 0;
 
     const attempt = async (description, update) => {
@@ -711,8 +797,7 @@ async function applyPlan(plan, label) {
         }
     };
 
-    // Token actors cannot be updated in bulk alongside world actors, so each actor is handled on its own
-    for (const { actor, update, itemUpdates } of plan.actors) {
+    const applyActor = async ({ actor, update, itemUpdates }) => {
         if (update) {
             await attempt(actor.uuid, () => actor.update(update, { noHook: true }));
         }
@@ -721,6 +806,11 @@ async function applyPlan(plan, label) {
                 actor.updateEmbeddedDocuments("Item", itemUpdates, { noHook: true }),
             );
         }
+    };
+
+    // Token actors cannot be updated in bulk alongside world actors, so each actor is handled on its own
+    for (const conversion of plan.actors) {
+        await applyActor(conversion);
         progress.advance();
     }
 
@@ -733,6 +823,30 @@ async function applyPlan(plan, label) {
             scene.updateEmbeddedDocuments("Token", tokenUpdates, { noHook: true }),
         );
         progress.advance();
+    }
+
+    for (const { pack, actors, items } of plan.packs) {
+        progress.advance(`Converting ${pack.metadata.label}…`);
+        // A pack must be unlocked to be written to, and is restored to its previous state either way
+        const wasLocked = pack.locked;
+        if (wasLocked) {
+            await attempt(`unlocking ${pack.metadata.id}`, () => pack.configure({ locked: false }));
+            if (pack.locked) continue;
+        }
+        try {
+            for (const conversion of actors) {
+                await applyActor(conversion);
+            }
+            for (const batch of chunk(items, 100)) {
+                await attempt(pack.metadata.id, () =>
+                    pack.documentClass.updateDocuments(batch, { pack: pack.metadata.id, noHook: true }),
+                );
+            }
+        } finally {
+            if (wasLocked) {
+                await attempt(`relocking ${pack.metadata.id}`, () => pack.configure({ locked: true }));
+            }
+        }
     }
     progress.close();
 
@@ -755,12 +869,16 @@ if (FROM === TO) {
     ui.notifications.error("The damage type being replaced and its replacement must be different.");
     return;
 }
+if (!["none", "world", "all"].includes(PACKS)) {
+    ui.notifications.error(`PACKS must be "none", "world", or "all".`);
+    return;
+}
 
 const fromLabel = damageTypeLabel(FROM);
 const toLabel = damageTypeLabel(TO);
 
-ui.notifications.info(`Scanning the world for ${fromLabel} damage…`);
-const plan = await buildPlan({ from: FROM, to: TO, prose: PROSE });
+ui.notifications.info(`Scanning for ${fromLabel} damage. With compendiums included this can take a few minutes…`);
+const plan = await buildPlan({ from: FROM, to: TO, prose: PROSE, packs: PACKS });
 
 if (plan.changes === 0) {
     ui.notifications.info(`No ${fromLabel} damage was found in this world.`);
@@ -768,8 +886,9 @@ if (plan.changes === 0) {
 }
 
 if (DRY_RUN) {
+    const packNote = plan.packs.length > 0 ? `, spanning ${plan.packs.length} compendium packs` : "";
     ui.notifications.info(
-        `${plan.changes} values across ${plan.documents} documents would change from ${fromLabel} to ${toLabel}.`,
+        `${plan.changes} values across ${plan.documents} documents would change from ${fromLabel} to ${toLabel}${packNote}.`,
     );
     console.log("Convert Damage Type | Dry run plan:", plan);
     return;
@@ -779,12 +898,25 @@ const proseNotice = PROSE
     ? `<p>Names, descriptions, and token names are rewritten as well, but only for documents that actually reference ${fromLabel}: an entry that merely contains the word is left alone.</p>`
     : "<p>Names and descriptions are left unchanged.</p>";
 
+// Packs belonging to the system or a module are replaced wholesale when their package is updated
+const externalPacks = plan.packs.filter((p) => p.pack.metadata.packageType !== "world").length;
+const packNotice =
+    plan.packs.length === 0
+        ? ""
+        : `<p>This includes <strong>${plan.packs.length}</strong> compendium packs, which are unlocked to be written ` +
+          "to and locked again afterward." +
+          (externalPacks > 0
+              ? ` <strong>${externalPacks}</strong> of them belong to the system or to a module rather than to this ` +
+                "world, and their contents will be replaced the next time that package is updated."
+              : "") +
+          "</p>";
+
 const confirmed = await foundry.applications.api.DialogV2.confirm({
     window: { title: "Convert Damage Type" },
     content:
         `<p>This will change <strong>${plan.changes}</strong> values across <strong>${plan.documents}</strong> documents ` +
         `from <strong>${fromLabel}</strong> to <strong>${toLabel}</strong>, including damage types, traits, immunities, ` +
-        `weaknesses, resistances, and persistent damage.</p>${proseNotice}` +
+        `weaknesses, resistances, and persistent damage.</p>${proseNotice}${packNotice}` +
         "<p>This cannot be undone: back up your world before continuing.</p>",
     yes: { default: false },
 });
