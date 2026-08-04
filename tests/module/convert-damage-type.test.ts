@@ -498,6 +498,83 @@ describe("Damage type conversion", () => {
             );
         });
 
+        test("rewrites vivid descriptions of the damage type, not just its name", () => {
+            const source = {
+                type: "spell",
+                name: "Blazing Bolt",
+                system: {
+                    slug: "blazing-bolt",
+                    traits: { value: ["attack", "fire", "manipulate"] },
+                    description: { value: "<p>A blazing inferno of flame. Scorching and searing.</p>" },
+                },
+            };
+            const { updates } = converter().convertItemSource(source);
+
+            expect(updates.name).toBe("Corrosive Bolt");
+            expect(updates["system.description.value"]).toBe(
+                "<p>A corrosive deluge of acid. Corrosive and corrosive.</p>",
+            );
+        });
+
+        test("keeps each verb form in its own tense", () => {
+            const source = {
+                type: "action",
+                name: "Immolate",
+                system: {
+                    slug: "immolate",
+                    traits: { value: ["fire"] },
+                    description: { value: "<p>It burns them. The burning continues after it burned.</p>" },
+                },
+            };
+            const { updates } = converter().convertItemSource(source);
+
+            expect(updates["system.description.value"]).toBe(
+                "<p>It corrodes them. The corroding continues after it corroded.</p>",
+            );
+        });
+
+        test("leaves the word alone where it is a verb rather than the damage type", () => {
+            const source = {
+                type: "weapon",
+                name: "Drake Rifle",
+                system: {
+                    slug: "drake-rifle",
+                    damage: { damageType: "fire", dice: 1, die: "d6" },
+                    description: {
+                        value:
+                            "<p>You fire a ray of flame, and you can fire an additional shot. " +
+                            "It grants you fire resistance 5 against fire damage.</p>",
+                    },
+                },
+            };
+            const { updates } = converter().convertItemSource(source);
+
+            // The two verbs survive; the two nouns convert
+            expect(updates["system.description.value"]).toBe(
+                "<p>You fire a ray of acid, and you can fire an additional shot. " +
+                    "It grants you acid resistance 5 against acid damage.</p>",
+            );
+        });
+
+        test("does not extend a non-noun term into a compound", () => {
+            const source = {
+                type: "action",
+                name: "Burner",
+                system: {
+                    slug: "burner",
+                    traits: { value: ["fire"] },
+                    // "burner" and "blazingly" must not become "corrodeer" and "corrosively"
+                    description: { value: "<p>The burner works blazingly well. Fireball still converts.</p>" },
+                },
+            };
+            const { updates } = converter().convertItemSource(source);
+
+            expect(updates.name).toBeUndefined();
+            expect(updates["system.description.value"]).toBe(
+                "<p>The burner works blazingly well. Acidball still converts.</p>",
+            );
+        });
+
         test("corrects the indefinite article when the replacement's initial sound differs", () => {
             const source = {
                 type: "action",

@@ -116,12 +116,33 @@ const ACTOR_TEXT_PATHS = [
  * tail of such a word almost always produces nonsense.
  */
 const DAMAGE_TYPE_PROSE = {
-    acid: { adjective: "acidic", synonyms: [] },
-    cold: { adjective: "freezing", synonyms: ["ice"] },
-    electricity: { adjective: "electrical", synonyms: ["lightning"] },
+    acid: {
+        adjective: "acidic",
+        synonyms: [],
+        descriptors: ["corrosive", "caustic"],
+        verbs: { base: "corrode", third: "corrodes", past: "corroded", pastAlt: "corroded", gerund: "corroding" },
+        mass: ["deluge"],
+    },
+    cold: {
+        adjective: "freezing",
+        synonyms: ["ice"],
+        descriptors: ["frigid", "glacial"],
+        verbs: { base: "freeze", third: "freezes", past: "froze", pastAlt: "frozen", gerund: "freezing" },
+        mass: ["blizzard"],
+    },
+    electricity: {
+        adjective: "electrical",
+        synonyms: ["lightning"],
+        descriptors: ["crackling", "arcing"],
+        verbs: { base: "shock", third: "shocks", past: "shocked", pastAlt: "shocked", gerund: "shocking" },
+        mass: ["storm"],
+    },
     fire: {
         adjective: "fiery",
         synonyms: ["flame", "flames"],
+        descriptors: ["blazing", "flaming", "scorching", "searing", "smoldering", "smouldering"],
+        verbs: { base: "burn", third: "burns", past: "burned", pastAlt: "burnt", gerund: "burning" },
+        mass: ["inferno", "conflagration", "blaze"],
         compoundExceptions: [
             "firearm",
             "firearms",
@@ -138,11 +159,81 @@ const DAMAGE_TYPE_PROSE = {
         ],
     },
     mental: { adjective: "mental", synonyms: [] },
-    poison: { adjective: "poisonous", synonyms: ["venom"] },
-    sonic: { adjective: "sonic", synonyms: ["sound"] },
+    poison: {
+        adjective: "poisonous",
+        synonyms: ["venom"],
+        descriptors: ["toxic", "venomous"],
+        verbs: { base: "poison", third: "poisons", past: "poisoned", pastAlt: "poisoned", gerund: "poisoning" },
+    },
+    sonic: { adjective: "sonic", synonyms: ["sound"], descriptors: ["deafening", "thunderous"] },
     vitality: { adjective: "vital", synonyms: [] },
     void: { adjective: "void", synonyms: [] },
 };
+
+/**
+ * Words whose verb sense means something other than the damage type, and so must be left alone when used that way.
+ *
+ * "You fire a ray of flame" is an instruction to shoot, and rewriting it produces nonsense. This is deliberately not a
+ * list of every word that can be a verb: to burn *is* what fire does, so "it burns them" should indeed become "it
+ * corrodes them" — those forms are paired up in each type's `verbs` instead.
+ */
+const UNRELATED_VERB_SENSE = new Set(["fire", "sound"]);
+
+/** Words that mark what precedes a verb: a subject or an auxiliary. */
+const VERB_SUBJECTS = new Set([
+    "can",
+    "cannot",
+    "could",
+    "he",
+    "i",
+    "it",
+    "may",
+    "might",
+    "must",
+    "shall",
+    "she",
+    "should",
+    "that",
+    "they",
+    "to",
+    "we",
+    "which",
+    "who",
+    "will",
+    "would",
+    "you",
+]);
+
+/** Words that mark what follows a transitive verb: the start of its object. */
+const VERB_OBJECTS = new Set([
+    "a",
+    "additional",
+    "again",
+    "an",
+    "another",
+    "at",
+    "back",
+    "her",
+    "his",
+    "into",
+    "it",
+    "its",
+    "my",
+    "off",
+    "one",
+    "our",
+    "that",
+    "the",
+    "their",
+    "them",
+    "these",
+    "this",
+    "those",
+    "three",
+    "two",
+    "upon",
+    "your",
+]);
 
 /**
  * Segments of description text that must not be treated as prose: HTML tags, inline rolls, and enricher expressions.
@@ -361,11 +452,15 @@ class DamageTypeConverter {
     #convertProse(text) {
         if (!this.#prosePattern) return text;
         this.#prosePattern.lastIndex = 0;
-        return text.replace(this.#prosePattern, (whole, article, space, word, remainder) => {
-            if (remainder && this.#compoundExceptions.has(`${word}${remainder}`.toLowerCase())) return whole;
-            const replacement = this.#proseTerms.get(word.toLowerCase());
-            if (!replacement) return whole;
-            const converted = `${matchCase(word, replacement)}${remainder}`;
+        return text.replace(this.#prosePattern, (whole, article, space, word, remainder, offset, full) => {
+            const term = this.#proseTerms.get(word.toLowerCase());
+            if (!term) return whole;
+            if (remainder && (!term.compound || this.#compoundExceptions.has(`${word}${remainder}`.toLowerCase()))) {
+                return whole;
+            }
+            if (!remainder && isVerbUsage(word, offset + whole.length - word.length, full)) return whole;
+
+            const converted = `${matchCase(word, term.replacement)}${remainder}`;
             if (!article) return converted;
             const corrected = /^[aeiou]/i.test(converted) ? "an" : "a";
             return `${matchCase(article, corrected)}${space}${converted}`;
@@ -508,18 +603,60 @@ class DamageTypeConverter {
 
 /* -------------------------------------------- Helpers --------------------------------------------- */
 
-/** Build the prose replacements for a conversion: nouns and synonyms map to the noun, adjectives to the adjective. */
+/**
+ * Build the prose replacements for a conversion, pairing each word of the source type with the word playing the same
+ * role for the target: nouns to the noun, adjectives to the adjective, each verb form to the matching form.
+ *
+ * Only the type's own nouns extend into compounds. "Fireball" is a ball of fire, but treating "burn" that way would
+ * turn "burner" into "corrodeer", so every other word is matched whole.
+ */
 function buildProseTerms(from, to) {
     const fromProse = DAMAGE_TYPE_PROSE[from] ?? { adjective: from, synonyms: [] };
     const toProse = DAMAGE_TYPE_PROSE[to] ?? { adjective: to, synonyms: [] };
-    const terms = new Map([[from, to]]);
+    const terms = new Map([[from, { replacement: to, compound: true }]]);
+
     for (const synonym of fromProse.synonyms) {
-        terms.set(synonym, to);
+        terms.set(synonym, { replacement: to, compound: true });
     }
     if (fromProse.adjective !== from) {
-        terms.set(fromProse.adjective, toProse.adjective);
+        terms.set(fromProse.adjective, { replacement: toProse.adjective, compound: false });
     }
+    // A vivid adjective falls back to the plain one when the target type has none of its own
+    const descriptor = toProse.descriptors?.[0] ?? toProse.adjective;
+    for (const word of fromProse.descriptors ?? []) {
+        terms.set(word, { replacement: descriptor, compound: false });
+    }
+    // Verb forms pair by key, so a third-person form stays third-person
+    for (const [role, word] of Object.entries(fromProse.verbs ?? {})) {
+        const replacement = toProse.verbs?.[role];
+        if (replacement) terms.set(word, { replacement, compound: false });
+    }
+    for (const word of fromProse.mass ?? []) {
+        terms.set(word, { replacement: toProse.mass?.[0] ?? to, compound: false });
+    }
+
     return terms;
+}
+
+/**
+ * Whether an occurrence of a noun-or-verb word is being used as a verb, and so must be left alone.
+ *
+ * Both halves have to agree: a subject or auxiliary before it *and* the start of an object after it. "You fire a ray"
+ * satisfies both and is an instruction to shoot; "grants you fire resistance" satisfies only the first, and is the
+ * damage type.
+ */
+function isVerbUsage(word, offset, text) {
+    if (!UNRELATED_VERB_SENSE.has(word.toLowerCase())) return false;
+    // An exclamation makes it an order — "Ready, Aim, Fire!" — with no subject to look for
+    if (text.slice(offset + word.length).startsWith("!")) return true;
+
+    const wordAt = (fragment, fromEnd) => {
+        const words = fragment.split(/[^A-Za-z']+/).filter(Boolean);
+        return (fromEnd ? words.at(-1) : words[0])?.toLowerCase() ?? "";
+    };
+    const before = wordAt(text.slice(Math.max(0, offset - 40), offset), true);
+    const after = wordAt(text.slice(offset + word.length, offset + word.length + 40), false);
+    return VERB_SUBJECTS.has(before) && VERB_OBJECTS.has(after);
 }
 
 /** Apply the capitalization of an original word to its replacement. */
