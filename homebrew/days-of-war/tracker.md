@@ -22,8 +22,8 @@ Copy this file for each war, or print it. Fill in one Day Log row per day.
 `[ ][ ][ ][ ][5][ ][ ][ ][ ][10][ ][ ][ ][ ][15][ ][ ][ ][ ][20]`
 Crises triggered: ______________________
 
-**War Clock (0–30)** — Drelev escalations at 4 / 6 / 8 / 12 / 16 / 20 / 24 / 27 / 30
-`[ ][ ][ ][4][ ][6][ ][8][ ][ ][ ][12][ ][ ][ ][16][ ][ ][ ][20][ ][ ][ ][24][ ][ ][27][ ][ ][30]`
+**War Clock (0–30)** — Drelev escalations at 4 / 6 / 8 / 10 / 12 / 16 / 20 / 24 / 27 / 30
+`[ ][ ][ ][4][ ][6][ ][8][ ][10][ ][12][ ][ ][ ][16][ ][ ][ ][20][ ][ ][ ][24][ ][ ][27][ ][ ][30]`
 Escalations triggered: ______________________
 
 **Banked Liberation Points (max 10; Whispers max 6):** ____  (Whispers so far: ____)
@@ -38,8 +38,10 @@ Escalations triggered: ______________________
 | | Ours | | | | / | | | | | — |
 | | Ours | | | | / | | | | | — |
 | Drelev Fort Guard | Drelev | 9 Inf | DR2 | Hold | 4/4 | | | fortified | | |
-| Pitaxian Free Company | Drelev | 10 Skr | HT1 | Hold | 4/4 | | | field works | LotL | |
+| Tok-Nikrat Scouts | Ours | 10 Skr | HT12 | | 4/4 | | | swamp guides | | — |
+| Pitaxian Free Company | Drelev | 10 Skr | Fwd Camp | Hold | 4/4 | | | | LotL | |
 | Drelev Stonethrowers | Drelev | 10 Inf | Fwd Camp | Hold | 6/6 | | | | | |
+| M'botuu Frog Riders | Drelev → Ours? | 10 Cav | HT6 | Patrol | 6/6 | | | Old Loyalties | | — |
 | Hooktongue Raiders | Drelev | 8 Skr | Slough | Raid | 4/4 | | | | LotL | |
 | Tiger Lord Outriders | Drelev | 10 Cav | (Day 2) | Raid | 4/4 | | | | | — |
 
@@ -56,9 +58,9 @@ Escalations triggered: ______________________
 
 | # | Mission | Status | Result |
 | --- | --- | --- | --- |
-| 1 | Wyvernstone Crossing | | |
+| 1 | Wyvernstone Crossing (optional) | | |
 | 2 | Burn the Forward Camp | | |
-| 3 | The Strider's Son | | |
+| 3 | The Kings Return to M'botuu | | |
 | 4 | Windchaser | | |
 | 5 | Desperate Refugees | | |
 | 6 | Speartooth | | |

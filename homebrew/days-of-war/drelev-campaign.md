@@ -16,8 +16,9 @@ Page numbers refer to the Kingmaker Adventure Path hardcover.
 
 ## 1. Where This Fits
 
-- **After the Battle for Tatzlford** (Part 1, pp. 288–299). Kisandra Numesti's plea
-  (p. 299) and Drelev's open hostility make this the natural point to declare war.
+- **When Drelev declares war.** In the module this follows the Battle for Tatzlford
+  (Part 1, pp. 288–299) and Kisandra Numesti's plea (p. 299). If your PCs never
+  reached Tatzlford, start here anyway; Kisandra can find them at the capital instead.
 - **Replaces** the gap between Part 1 and Part 2, which the module expects you to fill
   with Kingdom turns. **Part 2** (Fort Drelev and Drelev Keep, pp. 300–317) becomes the
   campaign's climax rather than its opening.
@@ -29,21 +30,34 @@ Page numbers refer to the Kingmaker Adventure Path hardcover.
 
 ## 2. The Theater
 
+This kit assumes the kingdom described below. Adjust it if yours differs.
+
+- The **capital** is at the Stag Lord's old fort on the Tuskwater (zone 3).
+- The kingdom's hexes are mostly in the **Greenbelt** and around the Tuskwater. It
+  has **barely reached into the Narlmarches**.
+- The PCs **already command the bog striders of Tok-Nikrat** (HT12).
+- The PCs once ruled the **M'botuu boggards** (HT6) but **handed leadership to
+  Drelev**. The boggards still regard the PCs as their true leaders, but Drelev's
+  overseer holds them unless a PC goes to M'botuu in person.
+
 | Zone / Site | Role in the war |
 | --- | --- |
-| **Tatzlford** (GB16) | Your western anchor and Drelev's first target. |
-| **Narlmarches** (your western hexes) | Your Friendly hexes, farms, and work sites: what Drelev's raiders want to burn. |
-| **Hooktongue Slough** (zone 10, pp. 94–103) | A greater-difficult swamp between the two realms. It's slow and dangerous for armies without guides. Home to M'botuu's boggards (HT6) and the bog striders of Tok-Nikrat (HT12). |
-| **Wyvernstone Bridge** (HT1) | The only good crossing of the East Sellen before it empties into the Slough. **Drelev holds it at the start.** |
-| **Drelev plains** (zone 11, pp. 103–105) | Open grassland west and north of the Slough. Fast ground for cavalry. Contains Speartooth's Den (DR1), the Wild Horses (DR3), and the Desperate Refugees (DR4). |
-| **Drelev's Forward Camp** (new) | Place it on the plains **2–3 hexes from Fort Drelev, toward your kingdom**. It's Drelev's supply depot for the field armies. |
+| **The capital and the Greenbelt** (zones 2–3) | Your heartland and supply base. Drelev's raiders hit the kingdom's **westernmost hexes** first: whatever Friendly hexes lie closest to the Narlmarches and the Slough. |
+| **Tatzlford** (GB16) | Only matters if it's yours. If it is, it's your forward settlement and Drelev's first siege target. If not, it's a neutral town Drelev may bully or occupy. |
+| **The Narlmarches** (zone 5) | Mostly **Wild** hexes between you and the Slough. Thick forest (difficult terrain), no supply, and hard on armies. Expect to build **depots** to cross it, and expect raiders to hunt those depots. |
+| **Hooktongue Slough** (zone 10, pp. 94–103) | Greater difficult swamp. **This is the PCs' natural road to Drelev.** Their bog striders know it, and M'botuu, if reclaimed, becomes a forward base in its heart. Without guides it's slow and dangerous. |
+| **Tok-Nikrat** (HT12) | Your bog striders' home. It's a supply source for armies the striders guide, and a target for Drelev's boggards (the two peoples are old enemies). |
+| **M'botuu** (HT6) | The boggard village, **held by Drelev's overseer** at the start. If a PC reclaims it in person (Mission 3), it becomes a friendly supply source in the Slough and its Frog Riders return to the PCs. |
+| **Wyvernstone Bridge** (HT1) | The northern crossing of the East Sellen. **It's off the PCs' route.** It only matters if one of the hooks in §6 (Mission 1) makes it matter. |
+| **Drelev plains** (zone 11, pp. 103–105) | Open grassland north and west of the Slough, and fast ground for cavalry. Contains Speartooth's Den (DR1), the Wild Horses (DR3), and the Desperate Refugees (DR4). |
+| **Drelev's Forward Camp** (new) | Place it on the plains or at the Slough's edge, **2–3 hexes from Fort Drelev, facing M'botuu**. It's the depot for Drelev's field armies. |
 | **Fort Drelev** (DR2) | The baron's seat on Lake Hooktongue (pp. 300–317). |
 | **Tiger Lord hills** (zone 12) | West of Drelev. The Outriders ride in from here. |
 
-> **Check your map.** The campaign assumes the East Sellen and Hooktongue Slough lie
-> between your kingdom and Fort Drelev, as they do for kingdoms built out of the
-> Greenbelt and Narlmarches. If your map differs, keep the idea that the bridge is the
-> fast way across a barrier, and move it to fit.
+> **The likely road to war:** capital → west through the Greenbelt → across the
+> Narlmarches on a chain of depots → into the Slough with the bog striders →
+> M'botuu (if reclaimed) → the Forward Camp → Fort Drelev. Drelev's best strategy is to
+> raid that chain and use the boggards to make the Slough deadly.
 
 ---
 
@@ -53,12 +67,25 @@ Page numbers refer to the Kingmaker Adventure Path hardcover.
    Fame/Infamy, stored Commodities, settlements, and armies.
 2. **Mobilization check** → starting War Chest (`rules.md` §3).
 3. **Starting Strain** = current Unrest ÷ 2 (rounded down).
-4. **Your armies:** place any armies the kingdom already has. If the PCs kept the
-   **Tatzlford Town Guard** (Army 7) and **Narlmarch Hunters** (Army 6) after Part 1
-   (p. 296), they are in Tatzlford. Those two armies don't scale with kingdom level
-   unless the PCs paid to keep them on, as the book describes.
-5. **Enemy armies:** place them as shown in §4.
-6. **War Clock** = 0, adjusted by how Tatzlford went:
+4. **Your armies:** place any armies the kingdom already has.
+   - The **Tok-Nikrat Scouts** (the bog strider army, Army 10 skirmisher, Appendix 3 p. 573) start at
+     Tok-Nikrat. See *Swamp Guides* below.
+   - If the PCs kept the **Tatzlford Town Guard** (Army 7) and **Narlmarch Hunters**
+     (Army 6) after Part 1 (p. 296), they are in Tatzlford. Those two armies don't
+     scale with kingdom level unless the PCs paid to keep them on, as the book
+     describes.
+5. **Supply sources:** your settlements, plus **Tok-Nikrat**. Tok-Nikrat supplies only
+   armies that are escorted by, or in the same hex as, the Tok-Nikrat Scouts. The
+   striders won't feed strangers.
+6. **Enemy armies:** place them as shown in §4.
+7. **War Clock** = 0. If you ran the Battle for Tatzlford, adjust the Clock by how it
+   went. If you skipped Tatzlford, use the "Ameon killed" row, or the "escaped" row
+   if you want Ameon around as a recurring enemy.
+
+**Swamp Guides (your bog striders).** Any of your armies that starts the day in the same
+hex as the Tok-Nikrat Scouts, or escorts them, treats Hooktongue Slough as **difficult**
+terrain instead of greater difficult and may Forage in swamp hexes. Losing the Scouts
+loses this benefit, so Drelev will hunt them.
 
 | Tatzlford outcome | Adjustments |
 | --- | --- |
@@ -83,8 +110,9 @@ Enemy armies are built on the Basic Armies by Level table (Appendix 3), assuming
 | Army | Level / Type | Starts at | Standing Order |
 | --- | --- | --- | --- |
 | Drelev Fort Guard | 9 Infantry | Fort Drelev (garrisoned, **fortified**) | Hold |
-| Pitaxian Free Company | 10 Skirmisher | Wyvernstone Bridge (field works) | Hold |
+| Pitaxian Free Company | 10 Skirmisher | Forward Camp | Hold |
 | Drelev Stonethrowers | 10 Infantry | Forward Camp | Hold |
+| M'botuu Frog Riders | 10 Cavalry (p. 572) | M'botuu | Patrol M'botuu (see *Old Loyalties*) |
 | Hooktongue Raiders | 8 Skirmisher | Hidden camp in Hooktongue Slough (GM places, near M'botuu) | Raid |
 | Tiger Lord Outriders | 10 Cavalry | Arrive from the western map edge at **Dusk on Day 2** | Raid |
 | *Drelev Irregulars* (if they survived Part 1) | 7 Infantry (p. 297) | Fort Drelev | Hold |
@@ -131,20 +159,49 @@ baron (compare the hill giant mercenaries in Drelev Keep, p. 306).
 to damage fortifications, as a siege army can.
 **Commander** An elite hill giant (Pathfinder Bestiary 170, elite adjustments).
 
+**M'BOTUU FROG RIDERS** — ARMY 10
+*Use the book's stat block (Appendix 3, p. 572).*
+**Description** The boggards of M'botuu, the PCs' own former subjects, now under the
+command of **Drelev's overseer**. Pick someone who fits your game: a Drelev officer, a
+Pitaxian handler, or a boggard priest who sided with the baron. The boggards obey the
+overseer because the PCs gave them to Drelev, but they still call the PCs their kings.
+**Old Loyalties** (unique) The boggards' hearts aren't in this war.
+- **Absent PCs:** without a PC present, the Frog Riders fight for Drelev normally. They
+  guard M'botuu, intercept your armies in the Slough, and harass Tok-Nikrat (Daily
+  Event 18). This is the price of handing them over.
+- **A PC on the field:** when the Frog Riders are in a battle where a PC is personally
+  present, before initiative one PC may call to them. That PC rolls their **own
+  Intimidation or Diplomacy** (a personal check, not a kingdom check) against
+  **DC 28**, the army's Morale DC.
+  - **Critical Success** The boggards turn on Drelev's armies and fight for the PCs
+    for this battle. Afterward they return to M'botuu.
+  - **Success** The boggards refuse to fight and leave the battle. Treat them as routed.
+  - **Failure** They fight, but they're shaken 1 from the start.
+  - **Critical Failure** The overseer's hold is firm. The boggards fight normally, and
+    no PC can call to them again until Mission 3.
+- **Reclaimed:** completing Mission 3 returns the Frog Riders to the PCs permanently,
+  as a specialized army at its listed level (adjusted to your kingdom level as normal).
+
 **HOOKTONGUE RAIDERS** — ARMY 8
 *CE Skirmisher, Mercenary*
 **Scouting** +16; **Recruitment DC** 24; **Consumption** 1
-**Description** Bandits who know the Slough, guided by boggards from M'botuu who are
-paid in captives.
+**Description** Slough bandits on Drelev's coin, guided through the swamp by boggards
+the overseer lends them.
 **AC** 25; **Maneuver** +21; **Morale** +15
 **HP** 4 (RT 2)
 **Melee** spears and hooks +20; **Ranged** javelins +20 (5 shots)
 **Tactics** Live off the Land
 **Swamp Guides** (unique) This army treats swamp as difficult terrain rather than
-greater difficult. It loses this ability if M'botuu is defeated or allied with the PCs.
-**Raid** (standing order) Each Dusk, move toward the nearest Friendly hex with no
-friendly army in it and raid it (`rules.md` §7). Flee from armies of equal or higher
-level.
+greater difficult. It loses this ability once M'botuu is reclaimed (Mission 3), because
+the boggard guides go home.
+**Raid** (standing order) Each Dusk, move toward the nearest target and raid it
+(`rules.md` §7). Targets, in order of priority: one of your **depots**, the westernmost
+**Friendly hex** with no friendly army, then **Tok-Nikrat**. Flee from armies of equal
+or higher level.
+
+> **Raiding a depot.** If enemy raiders end Dusk in a depot's hex with no friendly army
+> there, make the usual raid check. On a failure the depot is destroyed, and any army
+> relying on it may go unsupplied tonight.
 
 **TIGER LORD OUTRIDERS** — ARMY 10
 *CN Cavalry*
@@ -158,9 +215,27 @@ looted from Tiger Lord barrows.
 **Borrowed Blades** (unique) The Tiger Lords fight for Armag, not for Drelev. Each
 time another enemy army is **destroyed**, this army attempts a DC 24 Morale check.
 On a failure, it rides home to the hills and leaves the campaign.
-**Raid** As Hooktongue Raiders.
+**Raid** As Hooktongue Raiders, but the Outriders want your **heartland**. Horses
+can't cross the Slough quickly, so they ride north and **cross the East Sellen at
+Wyvernstone Bridge**, then strike at your Greenbelt and Tuskwater hexes from the
+northwest. (This is one of the bridge hooks in Mission 1.)
 
 ### Reinforcements (from War Clock escalations)
+
+**NORTHERN SELLSWORDS** — ARMY 10
+*N Infantry, Mercenary*
+**Scouting** +19; **Recruitment DC** 27; **Consumption** 1
+**Description** Hard-bitten Brevic freeswords, hired with promises of land, coming
+down the East Sellen road. Their arrival would also tell the PCs that someone in Brevoy
+wants Drelev to win.
+**AC** 30; **Maneuver** +16; **Morale** +22
+**HP** 4 (RT 2)
+**Melee** longswords +23; **Ranged** crossbows +23 (5 shots)
+**Tactics** Defensive Tactics, Hold the Line
+**Long Road** (unique) They arrive by the bridge only. If Wyvernstone Bridge is held by
+the PCs or destroyed when they reach it, they wait one day, then turn home if it isn't
+reopened. If they go around through the Slough instead (your call as GM), they arrive
+5 days late and weary 2.
 
 **PITAX SIEGE BATTERY** — ARMY 9
 *N Siege, Mercenary*
@@ -209,7 +284,7 @@ At Dusk, move enemy armies according to the current Posture.
 | Posture | When | Behavior |
 | --- | --- | --- |
 | **Raiding** | Clock 0–7 | The Raiders and Outriders raid. Everyone else holds. |
-| **Offensive** | Clock 8–15 | The Stonethrowers and Free Company (plus the Siege Battery once it arrives) march on the **nearest friendly settlement**, usually Tatzlford, and Besiege it. The raiders keep raiding. |
+| **Offensive** | Clock 8–15 | The Stonethrowers and Free Company (plus the Siege Battery once it arrives) strike at your **forward position**: **Tok-Nikrat**, or **M'botuu** if you've reclaimed it. If Tatzlford is yours and closer, they besiege it instead. The Frog Riders join this attack while Drelev still holds them. The raiders keep raiding. |
 | **Total War** | Clock 16+ | Every field army seeks out the nearest friendly army or settlement and attacks. The Fort Guard always holds the fort. |
 | **Entrenched** (override) | **3 or more** Drelev armies destroyed, **or** a friendly army with siege engines within 2 hexes of Fort Drelev | Drelev panics. Every surviving army marches back to Fort Drelev and garrisons. Raiding stops. The War Clock still advances. |
 
@@ -225,7 +300,8 @@ Dawn through the fiction: a messenger, smoke, a rumor, a corpse on a gibbet.
 | **4** | *Iron Curfew* | Drelev tightens his grip on the town. Lose 1 banked LP. When Part 2's infiltration begins, every infiltration DC (p. 303) is +1. |
 | **6** | *The Pay Convoy* | A Pitaxian wagon train of silver sets out to pay the mercenaries. **Mission 7** becomes available. |
 | **8** | *A Price on Their Heads* | Posture → **Offensive**. Drelev posts a bounty on the PCs. On the next day they travel, they meet a band of bounty hunters (a Moderate 11 encounter of your choice). |
-| **12** | *Pitax's Loan* | The **Pitax Siege Battery** arrives at Fort Drelev. If the PCs hold Wyvernstone Bridge, it arrives 3 days later instead. |
+| **10** | *Word from the North* | Drelev's old Brevic contacts send the **Northern Sellswords** down the East Sellen road. They reach Wyvernstone Bridge 3 days later and Fort Drelev 2 days after that. Mission 1 becomes available. Reveal this through a captured letter, a Scout the Front success, or Kisandra. The players should learn it's coming. |
+| **12** | *Pitax's Loan* | The **Pitax Siege Battery** arrives at Fort Drelev. |
 | **16** | *The Wall Is Finished* | Posture → **Total War**. Drelev finally closes the gap in Fort Drelev's wall (B1, p. 301). See §8: the wall now counts as a full Wooden Wall. |
 | **20** | *Armag's Gift* | The **Tiger Lord Warband** rides in from the western map edge. |
 | **24** | *Conscription* | Drelev drags townsfolk into the **Drelev Conscripts**, placed at Fort Drelev. Lose 2 banked LP, because the town's boldest are now in chains or in the levy. |
@@ -243,15 +319,31 @@ completed.
 **Banked Liberation Points:** the campaign can bank **at most 10 LP** toward Fort
 Drelev's 20 (p. 301). Whispers Behind the Walls can contribute **at most 6** of those.
 
-### Mission 1 — The Wyvernstone Crossing (HT1) · Named Battle
-The Pitaxian Free Company holds the bridge behind field works (trench: AC 15, HP 1).
-- **Battle:** a full War encounter. The bridge is a narrow front: no more than **2
-  armies per side** may be engaged at once. Run the commander as Strike the Commander.
-- **PC strike:** before the battle, the party can hit the bridge's command post at
-  night: the commander plus 4 Drelev guards (p. 304). Success means the Free Company
-  starts the battle shaken 2 and not fortified.
-- **Reward:** you hold the bridge. Your armies cross the East Sellen here without the
-  river penalty, the Siege Battery escalation is delayed (§5), and War Clock −2.
+### Mission 1 — The Wyvernstone Crossing (HT1) · Optional
+The bridge is far north of the PCs' road through the Slough. **Don't push it on them.**
+It's guarded only by a small Drelev outpost: a sergeant and 4 Drelev guards (p. 304),
+not an army. It becomes worth the detour if one of these reasons comes up:
+
+- **The Outriders' road.** The Tiger Lord Outriders cross here to raid your heartland
+  (§4). If their raids are hurting, holding or breaking the bridge forces them through
+  the Slough as greater difficult terrain, which effectively ends their raids on your
+  core hexes.
+- **The Northern Sellswords** (War Clock 10). Holding or breaking the bridge before they
+  arrive keeps a whole enemy army out of the war.
+- **Drelev's escape route.** If Drelev reaches **Entrenched** posture (§4), he quietly
+  readies a flight north to Brevoy. If the bridge is open when the PCs finally corner
+  him, he may flee instead of fighting in his keep. That's a reason to hold it late in
+  the war.
+
+**Doing it:**
+- **Take it:** the party storms the outpost (a Moderate 11 encounter). Then station
+  any army there with a **Hold** order, or it slips back into Drelev's hands at the next
+  Dusk an enemy army passes.
+- **Break it:** a DC 30 Engineering check by a PC (or Crafting with explosives or
+  magic), taking a full day. The bridge is a 200-year-old landmark, so breaking it is
+  permanent. It also cuts the old East Sellen trade road, which may have kingdom
+  consequences of your choosing after the war.
+- **Reward:** War Clock −1, plus whichever hook made it worth the trip.
 
 ### Mission 2 — Burn the Forward Camp (Drelev plains)
 The Stonethrowers (and the Troll Marauders, if alive) guard Drelev's depot.
@@ -261,13 +353,34 @@ The Stonethrowers (and the Troll Marauders, if alive) guard Drelev's depot.
 - **Reward:** the depot is destroyed, War Clock −2, and +3 WC. Enemy field armies more
   than 2 hexes from Fort Drelev become unsupplied.
 
-### Mission 3 — The Strider's Son (HT6 M'botuu → HT12 Tok-Nikrat) · (Hope: Strain −1)
-Rescue Ka-Kekt from M'botuu (Chapter 2, Part 9, p. 154) and return him to Tok-Nikrat.
-- **Reward:** the bog striders become allies. Your armies treat Hooktongue Slough as
-  **difficult** terrain, and you can Forage in swamp hexes. **Call Allies** can recruit
-  the bog strider specialized army (Appendix 3) for **0 WC**.
-- If M'botuu is **defeated or allied**, the Hooktongue Raiders lose *Swamp Guides*, and
-  Daily Event 18 no longer applies.
+### Mission 3 — The Kings Return to M'botuu (HT6) · (Hope: Strain −1)
+The boggards still call the PCs their kings, but only the PCs' presence can break the
+overseer's hold. **At least one PC must personally go to M'botuu.** No Command or
+courier can do this.
+- **Getting there:** M'botuu is deep in the Slough and patrolled by the Frog Riders
+  while Drelev holds them. The bog striders can guide the party, but the two peoples
+  hate each other. Bringing the Tok-Nikrat Scouts **into** M'botuu worsens the
+  boggards' attitude by one step. Leaving them at the village's edge is wiser.
+- **At the village:** the overseer has the boggards' ear, but not their hearts. Run it
+  as a social and combat scene. Possible approaches:
+  - Publicly reclaim the throne with Intimidation or Diplomacy against the overseer
+    (use the boggard Chapter 2 Part 9 material, p. 154, for the village's leaders).
+  - Challenge the overseer, or their boggard champion, to single combat. Boggards
+    respect strength.
+  - Expose Drelev's bad faith, for example with proof that he's spending boggard lives
+    as Slough guides for bandits. Use Society or Deception, then Diplomacy.
+- **If it goes badly,** the overseer orders the boggards to attack. Every PC success
+  above can still flip individual boggards mid-fight.
+- **Reward:**
+  - The **M'botuu Frog Riders** rejoin the PCs (see *Old Loyalties*).
+  - **M'botuu becomes a friendly supply source** in the Slough, and a base the
+    armies can rest in.
+  - The **Hooktongue Raiders lose Swamp Guides**, and Daily Event 18 stops.
+  - Drelev learns of it. War Clock +1, but Drelev must now attack the Slough
+    through hostile swamp.
+- **Optional consequence:** if the PCs want boggards and bog striders fighting side by
+  side, require a Statecraft Command (Control DC) at M'botuu or Tok-Nikrat to broker a
+  wartime truce. Until then, the two armies can't end a day in the same hex.
 
 ### Mission 4 — Windchaser (DR3)
 Make the awakened stallion friendly (p. 105).
@@ -277,8 +390,10 @@ Make the awakened stallion friendly (p. 105).
   reveals the Tiger Lords' hidden valley, a Part 3 lead.
 
 ### Mission 5 — The Desperate Refugees (DR4) · (Hope: Strain −2)
-Escort the refugees (p. 105) to any friendly settlement. They move as infantry (1
-activity per day) and the Hooktongue Raiders hunt them. If raiders end Dusk in their
+Escort the refugees (p. 105) to any friendly settlement, or to M'botuu if it has been
+reclaimed, where the boggards will shelter them (grudgingly) until the war ends. Your
+heartland is a long walk away, so M'botuu is usually the practical choice. They move
+as infantry (1 activity per day) and the Hooktongue Raiders hunt them. If raiders end Dusk in their
 hex without a friendly army there, the escort fails.
 - **Reward:** Strain −2, Unrest −2 (as written, applied immediately), and +1 banked LP
   (their stories reach Fort Drelev). The free Trade Shop from the book is available
@@ -310,7 +425,7 @@ camp at night.
 - **Reward:** if he is killed or captured, the Free Company becomes shaken 1 and
   gains 1 Doubt. A captured Ameon can be turned as described on p. 299.
 
-### Mission 10 — Retake Tatzlford (only after a Total Defeat)
+### Mission 10 — Retake Tatzlford (only if Tatzlford was yours and fell)
 As p. 299: storm the town or sneak in and remove Ameon (or his lieutenant), which makes
 the occupying troops panic and disband.
 - **Reward:** Tatzlford is Friendly again and Strain −2.
@@ -331,7 +446,7 @@ the occupying troops panic and disband.
 | 15 | **Volunteers.** A settlement rallies behind you. Gain +2 WC, or reduce one army's shaken value by 1. |
 | 16 | **Fey omens.** Nyrissa's attention brushes the war. An ankou (zone 11 table, p. 103) shadows the party, and one Wild hex of your choice becomes greater difficult terrain until the war ends. |
 | 17 | **Drelev's envoy.** The baron offers terms (§9). |
-| 18 | **Boggard raid.** A Friendly hex next to Hooktongue Slough must make a raid check (DC 24). Ignore this result once M'botuu is dealt with. |
+| 18 | **Boggards strike Tok-Nikrat.** Drelev turns the PCs' former subjects on their bog striders. Tok-Nikrat makes a raid check (DC 27) using **Defense**, with a +2 circumstance bonus if the Tok-Nikrat Scouts are home. On a failure, the Scouts take 1 damage wherever they are (kin lost at home) and Strain +1. Once M'botuu is reclaimed, treat this as a quiet day. |
 | 19 | **Camp fever.** Your largest army attempts a Defense or Folklore check (Control DC) or increases weary by 1. |
 | 20 | **A heroic moment.** Today one PC may take a second Command, or one Command gets a +2 circumstance bonus. |
 
@@ -437,12 +552,18 @@ and the Collapse of Will crisis still applies.
 
 - **Expected length:** 15–25 days. The War Clock alone reaches 30 by Day 30, and a
   good campaign pushes it back several times.
-- **Day 1 should feel urgent:** raiders are loose, the bridge is held against you,
-  and the Outriders arrive at Dusk on Day 2. Give the players a clear first decision:
-  protect the farms, take the bridge, or go for the camp?
+- **Day 1 should feel urgent:** raiders are loose in the Slough, the boggards the
+  PCs gave away are guarding M'botuu against them, and the Outriders arrive at Dusk
+  on Day 2. Give the players a clear first decision: protect the western farms, push a
+  depot chain into the Narlmarches, or go personally to M'botuu to win back the
+  boggards?
 - **Rushing the fort is allowed but costly.** A party that goes straight for Fort
-  Drelev on Day 3 faces every garrison, no banked LP, and raiders burning the
-  Narlmarches behind them. That's a legitimate choice. Make the consequences visible.
+  Drelev on Day 3 faces every garrison, hostile boggards in the Slough, no banked
+  LP, and raiders burning their depots behind them. That's a legitimate choice. Make the consequences visible.
 - **Armies hold, heroes act.** The most memorable days will be the ones where the
-  party leaves its levies dug in at Tatzlford to hunt Speartooth or burn the camp, and
-  rides back to find out whether the line held.
+  party leaves its armies dug in at Tok-Nikrat to walk into M'botuu and reclaim
+  the boggards, or to burn the Forward Camp, and comes back to find out whether
+  the line held.
+- **The bridge is a side road.** Don't steer the players north. Let the Outriders'
+  raids or the Northern Sellswords give them a reason, and let them decide if it's
+  worth the detour.
