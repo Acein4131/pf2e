@@ -303,6 +303,54 @@ Commander, he can duel the enemy commander alongside them.
 - **The debt:** either way, Restov will remember it sent help. Use this as a political
   hook in later chapters.
 
+### Allied Army: Erastil's Hunters
+
+**THE LONGBOWS OF OLD DEADEYE** — ARMY 8
+*LG Skirmisher (allied specialized army)*
+**Scouting** +18 (+2 adjustment); **Recruitment DC** 29 (+5 adjustment); **Consumption** 1
+**Description** Priests and lay hunters of Erastil from the frontier shrines. They're
+trappers, archers, and trackers who pray over every kill and fight to protect hearth
+and harvest. They move quietly, shoot from cover, and fall back before an enemy can
+close with them.
+**AC** 25; **Maneuver** +21 (high); **Morale** +19 (low, +6 adjustment: faith in the
+Old Deadeye)
+**HP** 4 (RT 2)
+**Melee** hunting spears and knives +18 (includes Sharpshooter's −2)
+**Ranged** longbows +21 (7 shots; includes Sharpshooter's +1)
+**Tactics** Keen Eyed, Live off the Land, Sharpshooter
+**Full Quivers** (unique tactic) Erastil's hunters never go out short of arrows. They
+have 7 ranged Strikes per war encounter instead of 5.
+**Hunter's Mark** [one-action] (unique tactic) A priest names the quarry. Choose one
+enemy army. Until the end of the war encounter, the Longbows' ranged Strikes against
+it take only a −2 penalty while it is distant (instead of −5), and ignore its concealed
+condition.
+**Blessing of the Old Deadeye** [two-actions] (unique tactic, once per war encounter)
+The priests pray over the wounded. Choose this army or one allied army in the battle
+that isn't defeated. It regains 1 HP, **or** reduces its shaken value by 1.
+**Hearth and Harvest** (unique) While defending a friendly settlement or a Friendly hex,
+the Longbows gain a +2 status bonus to Morale checks. They won't take part in anything
+that harms common folk. If ordered to Requisition by force (a Requisition critical
+failure), or if your kingdom uses Martial Law, they attempt a DC 22 Morale check and go
+home on a failure.
+
+**Days of War benefits** (outside battle)
+- **Trackers:** Scout the Front Commands targeting a hex within 2 hexes of the Longbows
+  get a +2 circumstance bonus.
+- **Hunters:** any army that ends the day in the same hex as the Longbows, outside a
+  swamp, counts as having Foraged successfully (it's supplied tonight).
+
+**Commander** A senior priest of Erastil. If Tatzlford is part of your game,
+**Latricia Rezbin** (LG cleric of Erastil 5, p. 291) is the natural spiritual leader,
+though she's not a battlefield commander at this level. Otherwise use a level 8–9
+cleric or ranger NPC of Erastil.
+
+**Raising them:** use **Call Allies** (Statecraft, DC 29) in any friendly settlement
+with a shrine or temple to Erastil, for **2 WC** (provisions and arrows). Alternatively,
+award them for free as the reward for a mission that protects Erastil's faithful, such
+as escorting the refugees, defending a shrine from raiders, or answering a temple's call
+for help. As a specialized army, their level adjusts to your kingdom level when they
+join (Appendix 3).
+
 ### Reinforcements (from War Clock escalations)
 
 **PITAX SIEGE BATTERY** — ARMY 9

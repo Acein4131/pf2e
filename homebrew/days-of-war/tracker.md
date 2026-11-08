@@ -40,6 +40,7 @@ Escalations triggered: ______________________
 | Drelev Fort Guard | Drelev | 9 Inf | DR2 | Hold | 4/4 | | | fortified | | |
 | Tok-Nikrat Scouts | Ours | 10 Skr | HT12 | | 4/4 | | | swamp guides | | — |
 | Swordlords' Company (Restov) | Ours (Day 7, north edge) | 10 Skr | East Sellen road | | 5/5 | | | Restov's Purse | | — |
+| Longbows of Old Deadeye (Erastil) | Ours (if raised) | 8 Skr | | | 4/4 | | | 7 shots, Blessing 1/battle | LotL | — |
 | Pitaxian Free Company | Drelev | 10 Skr | Fwd Camp | Hold | 4/4 | | | | LotL | |
 | Drelev Stonethrowers | Drelev | 10 Inf | Fwd Camp | Hold | 6/6 | | | | | |
 | M'botuu Frog Riders | Drelev → Ours? | 10 Cav | HT6 | Patrol | 6/6 | | | Old Loyalties | | — |
