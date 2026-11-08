@@ -222,20 +222,54 @@ northwest. (This is one of the bridge hooks in Mission 1.)
 
 ### Reinforcements (from War Clock escalations)
 
-**NORTHERN SELLSWORDS** — ARMY 10
-*N Infantry, Mercenary*
-**Scouting** +19; **Recruitment DC** 27; **Consumption** 1
-**Description** Hard-bitten Brevic freeswords, hired with promises of land, coming
-down the East Sellen road. Their arrival would also tell the PCs that someone in Brevoy
-wants Drelev to win.
-**AC** 30; **Maneuver** +16; **Morale** +22
-**HP** 4 (RT 2)
-**Melee** longswords +23; **Ranged** crossbows +23 (5 shots)
-**Tactics** Defensive Tactics, Hold the Line
-**Long Road** (unique) They arrive by the bridge only. If Wyvernstone Bridge is held by
-the PCs or destroyed when they reach it, they wait one day, then turn home if it isn't
-reopened. If they go around through the Slough instead (your call as GM), they arrive
-5 days late and weary 2.
+**THE UNCOLORED LANCES** — ARMY 11
+*LN Cavalry*
+**Scouting** +21; **Recruitment DC** 28; **Consumption** 2
+**Description** Two hundred household lancers of **House Surtova**, Brevoy's ruling
+house, riding south under plain grey cloaks with no banners. The swordlords of Restov
+chartered the PCs to build kingdoms that would strengthen Rostland against the Surtova
+crown (Chapter 1, p. 45). A PC kingdom bled white by its neighbor suits King Noleski
+very well, as long as no one can prove Brevoy had a hand in it. Officially they're
+freeswords hired by the baron. Their commander knows better.
+**AC** 31; **Maneuver** +24 (high); **Morale** +20 (low, +2 adjustment for sworn
+household troops)
+**HP** 5 (RT 3)
+**Melee** lances and sabers +24
+**Tactics** Overrun, Toughened Soldiers, Merciless
+**Couched Lances** (unique tactic) The first time each war encounter that the Lances
+succeed at an Advance to engage an army, they can immediately make one melee Strike
+against that army as a free action. This Strike doesn't count toward their multiple
+attack penalty.
+**No Colors** (unique tactic) The Lances aren't Mercenary, so *Turn Their Coin* doesn't
+work on them. Their weakness is politics. If the PCs **unmask** them, they leave the
+war at the next Dawn, because Surtova can't be seen making war on a Rostland charter.
+Ways to unmask them:
+- Capture their commander alive during Strike the Commander.
+- Take a household seal, signet, or letters (the GM can hide these in their camp or on
+  a courier, or award them for a Scout the Front critical success).
+- Succeed at an **Intrigue** Command (Control DC + 5) while a PC is within 2 hexes of
+  the Lances, gathering enough testimony to make the accusation stick.
+
+Unmasking them gives **War Clock −2** and **Strain −1** (the people rally against
+foreign meddling). It also gives the PCs leverage over House Surtova and favor with
+Restov's swordlords when Kingdom turns resume. If the PCs **destroy** the Lances
+without unmasking them, Surtova denies everything and quietly remembers the insult.
+**Long Road** (unique) The Lances travel down the East Sellen road and arrive by
+Wyvernstone Bridge. If the bridge is held by the PCs or broken when they reach it, they
+wait one day, then turn for home if it doesn't reopen. They won't take horses through
+the Slough.
+**Commander** **Ser Vadim Surtova**, a minor cousin of the royal line (an invented NPC).
+He's proud, cold, and under orders to avoid capture at all costs. Use Ameon Trask's
+statistics (p. 298) with the elite adjustments and a lance in place of the paired short
+swords, or any level 12 knight or fighter NPC. If reduced below half HP, he tries to
+flee rather than be taken.
+
+> **If Restov answers instead.** The same stat block works as a **friendly** Brevic
+> army if your table wants it. If the PCs unmask the Lances and send the proof to
+> Restov, the swordlords may answer with their own riders (rename them the Restov
+> Free Lances and drop *No Colors* and *Long Road*). They arrive at the PCs' capital
+> 5 days later as a specialized army the PCs can bring in with **Call Allies** (DC 28,
+> 0 WC).
 
 **PITAX SIEGE BATTERY** — ARMY 9
 *N Siege, Mercenary*
@@ -300,7 +334,7 @@ Dawn through the fiction: a messenger, smoke, a rumor, a corpse on a gibbet.
 | **4** | *Iron Curfew* | Drelev tightens his grip on the town. Lose 1 banked LP. When Part 2's infiltration begins, every infiltration DC (p. 303) is +1. |
 | **6** | *The Pay Convoy* | A Pitaxian wagon train of silver sets out to pay the mercenaries. **Mission 7** becomes available. |
 | **8** | *A Price on Their Heads* | Posture → **Offensive**. Drelev posts a bounty on the PCs. On the next day they travel, they meet a band of bounty hunters (a Moderate 11 encounter of your choice). |
-| **10** | *Word from the North* | Drelev's old Brevic contacts send the **Northern Sellswords** down the East Sellen road. They reach Wyvernstone Bridge 3 days later and Fort Drelev 2 days after that. Mission 1 becomes available. Reveal this through a captured letter, a Scout the Front success, or Kisandra. The players should learn it's coming. |
+| **10** | *Word from the North* | Drelev's old Brevic contacts send **the Uncolored Lances**, House Surtova's deniable household cavalry, down the East Sellen road. They reach Wyvernstone Bridge 3 days later and Fort Drelev 2 days after that. Mission 1 becomes available. Reveal this through a captured letter, a Scout the Front success, or Kisandra. The players should learn it's coming. |
 | **12** | *Pitax's Loan* | The **Pitax Siege Battery** arrives at Fort Drelev. |
 | **16** | *The Wall Is Finished* | Posture → **Total War**. Drelev finally closes the gap in Fort Drelev's wall (B1, p. 301). See §8: the wall now counts as a full Wooden Wall. |
 | **20** | *Armag's Gift* | The **Tiger Lord Warband** rides in from the western map edge. |
@@ -328,7 +362,7 @@ not an army. It becomes worth the detour if one of these reasons comes up:
   (§4). If their raids are hurting, holding or breaking the bridge forces them through
   the Slough as greater difficult terrain, which effectively ends their raids on your
   core hexes.
-- **The Northern Sellswords** (War Clock 10). Holding or breaking the bridge before they
+- **The Uncolored Lances** (War Clock 10). Holding or breaking the bridge before they
   arrive keeps a whole enemy army out of the war.
 - **Drelev's escape route.** If Drelev reaches **Entrenched** posture (§4), he quietly
   readies a flight north to Brevoy. If the bridge is open when the PCs finally corner
@@ -565,5 +599,5 @@ and the Collapse of Will crisis still applies.
   the boggards, or to burn the Forward Camp, and comes back to find out whether
   the line held.
 - **The bridge is a side road.** Don't steer the players north. Let the Outriders'
-  raids or the Northern Sellswords give them a reason, and let them decide if it's
+  raids or the Uncolored Lances give them a reason, and let them decide if it's
   worth the detour.
