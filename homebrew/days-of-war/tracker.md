@@ -22,8 +22,8 @@ Copy this file for each war, or print it. Fill in one Day Log row per day.
 `[ ][ ][ ][ ][5][ ][ ][ ][ ][10][ ][ ][ ][ ][15][ ][ ][ ][ ][20]`
 Crises triggered: ______________________
 
-**War Clock (0–30)** — Drelev escalations at 4 / 6 / 8 / 10 / 12 / 16 / 20 / 24 / 27 / 30
-`[ ][ ][ ][4][ ][6][ ][8][ ][10][ ][12][ ][ ][ ][16][ ][ ][ ][20][ ][ ][ ][24][ ][ ][27][ ][ ][30]`
+**War Clock (0–30)** — Drelev escalations at 4 / 6 / 8 / 12 / 16 / 20 / 24 / 27 / 30
+`[ ][ ][ ][4][ ][6][ ][8][ ][ ][ ][12][ ][ ][ ][16][ ][ ][ ][20][ ][ ][ ][24][ ][ ][27][ ][ ][30]`
 Escalations triggered: ______________________
 
 **Banked Liberation Points (max 10; Whispers max 6):** ____  (Whispers so far: ____)
@@ -39,6 +39,7 @@ Escalations triggered: ______________________
 | | Ours | | | | / | | | | | — |
 | Drelev Fort Guard | Drelev | 9 Inf | DR2 | Hold | 4/4 | | | fortified | | |
 | Tok-Nikrat Scouts | Ours | 10 Skr | HT12 | | 4/4 | | | swamp guides | | — |
+| Swordlords' Company (Restov) | Ours (Day 7, north edge) | 10 Skr | East Sellen road | | 5/5 | | | Restov's Purse | | — |
 | Pitaxian Free Company | Drelev | 10 Skr | Fwd Camp | Hold | 4/4 | | | | LotL | |
 | Drelev Stonethrowers | Drelev | 10 Inf | Fwd Camp | Hold | 6/6 | | | | | |
 | M'botuu Frog Riders | Drelev → Ours? | 10 Cav | HT6 | Patrol | 6/6 | | | Old Loyalties | | — |

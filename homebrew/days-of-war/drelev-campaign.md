@@ -220,56 +220,90 @@ can't cross the Slough quickly, so they ride north and **cross the East Sellen a
 Wyvernstone Bridge**, then strike at your Greenbelt and Tuskwater hexes from the
 northwest. (This is one of the bridge hooks in Mission 1.)
 
-### Reinforcements (from War Clock escalations)
+### Allied Relief from Restov
 
-**THE UNCOLORED LANCES** — ARMY 11
-*LN Cavalry*
-**Scouting** +21; **Recruitment DC** 28; **Consumption** 2
-**Description** Two hundred household lancers of **House Surtova**, Brevoy's ruling
-house, riding south under plain grey cloaks with no banners. The swordlords of Restov
-chartered the PCs to build kingdoms that would strengthen Rostland against the Surtova
-crown (Chapter 1, p. 45). A PC kingdom bled white by its neighbor suits King Noleski
-very well, as long as no one can prove Brevoy had a hand in it. Officially they're
-freeswords hired by the baron. Their commander knows better.
-**AC** 31; **Maneuver** +24 (high); **Morale** +20 (low, +2 adjustment for sworn
-household troops)
+Lady **Jamandi Aldori** (p. 599) organized the push into the Stolen Lands, and Restov's
+swordlords chartered the PCs. A Brevic baron making war on their charter-holders is an
+insult the swordlords won't ignore. Jamandi sends a company of Aldori duelists south.
+
+**THE SWORDLORDS' COMPANY** — ARMY 10
+*CG Skirmisher (allied specialized army)*
+**Scouting** +19; **Recruitment DC** 32 (+5 adjustment); **Consumption** 1
+**Description** A hundred or so Aldori duelists from Restov's dueling schools: sworn
+students, journeymen, and a handful of swordlords. Each fights with an Aldori dueling
+sword and a free hand. They aren't a shield wall but a swarm of masters, each picking
+a foe, parrying, and punishing every mistake.
+**AC** 28; **Maneuver** +24 (high); **Morale** +20 (low, +4 adjustment: the pride of
+Restov)
 **HP** 5 (RT 3)
-**Melee** lances and sabers +24
-**Tactics** Overrun, Toughened Soldiers, Merciless
-**Couched Lances** (unique tactic) The first time each war encounter that the Lances
-succeed at an Advance to engage an army, they can immediately make one melee Strike
-against that army as a free action. This Strike doesn't count toward their multiple
-attack penalty.
-**No Colors** (unique tactic) The Lances aren't Mercenary, so *Turn Their Coin* doesn't
-work on them. Their weakness is politics. If the PCs **unmask** them, they leave the
-war at the next Dawn, because Surtova can't be seen making war on a Rostland charter.
-Ways to unmask them:
-- Capture their commander alive during Strike the Commander.
-- Take a household seal, signet, or letters (the GM can hide these in their camp or on
-  a courier, or award them for a Scout the Front critical success).
-- Succeed at an **Intrigue** Command (Control DC + 5) while a PC is within 2 hexes of
-  the Lances, gathering enough testimony to make the accusation stick.
+**Melee** Aldori dueling swords +24 (+1 adjustment)
+**Tactics** Flexible Tactics, Toughened Soldiers
+**Aldori Parry** [one-action] (unique tactic) The duelists parry as one. Until the start
+of their next turn, they gain a +2 circumstance bonus to AC against melee Strikes.
+**Aldori Riposte** [reaction] (unique tactic) **Requirement** The Company is benefiting
+from Aldori Parry. **Trigger** An army engaged with the Company critically fails a melee
+Strike against it. **Effect** The Company makes a melee Strike against that army. On a
+hit, the target also becomes shaken 1 (or increases shaken by 1), as Restov's duelists
+humiliate their foes.
+**Swordlord's Challenge** [two-actions] (unique tactic, once per war encounter) A
+swordlord steps out and calls out the enemy's best. Choose an engaged enemy army and
+attempt a Maneuver check against its Morale DC.
+- **Critical Success** The enemy's champion falls. The target takes 1 damage and
+  becomes shaken 2.
+- **Success** The target becomes shaken 1.
+- **Failure** No effect.
+- **Critical Failure** Restov's champion falls. The Company becomes shaken 1.
 
-Unmasking them gives **War Clock −2** and **Strain −1** (the people rally against
-foreign meddling). It also gives the PCs leverage over House Surtova and favor with
-Restov's swordlords when Kingdom turns resume. If the PCs **destroy** the Lances
-without unmasking them, Surtova denies everything and quietly remembers the insult.
-**Long Road** (unique) The Lances travel down the East Sellen road and arrive by
-Wyvernstone Bridge. If the bridge is held by the PCs or broken when they reach it, they
-wait one day, then turn for home if it doesn't reopen. They won't take horses through
-the Slough.
-**Commander** **Ser Vadim Surtova**, a minor cousin of the royal line (an invented NPC).
-He's proud, cold, and under orders to avoid capture at all costs. Use Ameon Trask's
-statistics (p. 298) with the elite adjustments and a lance in place of the paired short
-swords, or any level 12 knight or fighter NPC. If reduced below half HP, he tries to
-flee rather than be taken.
+**Code of the Blade** (unique) The duelists are honorable and proud.
+- They won't Strike the **Drelev Conscripts**. They engage them only to make them rout.
+- If the kingdom uses **Martial Law**, or any of your armies **defeats** the Conscripts,
+  the Company attempts a DC 25 Morale check. On a failure, it rides home in disgust at
+  the next Dawn.
 
-> **If Restov answers instead.** The same stat block works as a **friendly** Brevic
-> army if your table wants it. If the PCs unmask the Lances and send the proof to
-> Restov, the swordlords may answer with their own riders (rename them the Restov
-> Free Lances and drop *No Colors* and *Long Road*). They arrive at the PCs' capital
-> 5 days later as a specialized army the PCs can bring in with **Call Allies** (DC 28,
-> 0 WC).
+**Restov's Purse** (unique) Restov pays its own. The Company costs nothing on Pay Day
+and can't become unpaid.
+
+**Commander** **Swordlord Teodor Ruskin**, one of Jamandi's protégés (an invented NPC).
+Use Jamandi Aldori's statistics (Creature 14, p. 599) with the weak adjustments, or
+unadjusted if your party is already level 12. If he's with the PCs during Strike the
+Commander, he can duel the enemy commander alongside them.
+
+#### How they arrive
+
+- **When:** they appear at the **north edge of the map on the East Sellen road** on
+  **Day 7**. The road meets the river about 40 miles, roughly 3 hexes, north of
+  Wyvernstone Bridge (p. 51). Skirmishers move 2 activities per day.
+- **Write to Restov** (once per war; Statecraft or Politics; Control DC). A PC sends an
+  urgent appeal to Jamandi.
+  - **Critical Success** The Company arrives 3 days earlier.
+  - **Success** It arrives 1 day earlier.
+  - **Failure** No change.
+  - **Critical Failure** The appeal reads as panic. Restov sends them anyway, but they
+    arrive 2 days later.
+- **The road runs over Wyvernstone Bridge.** The Company has no swamp guides and won't
+  bring Restov's pride through the Slough. **This is the PCs' reason to go north
+  (Mission 1).**
+  - Drelev's spies spot the Company the day it appears. At the next Dusk, unless Drelev
+    already has an army at the bridge, the **Pitaxian Free Company** marches to hold
+    the bridge behind field works (trench: AC 15, HP 1).
+  - If the bridge is held by Drelev when the Company arrives, the Company attacks.
+    Resolve it as a Clash, or as a full War encounter if the PCs are there.
+  - If the bridge is **broken**, the Company detours to an upriver crossing and arrives
+    **5 days later, weary 1**.
+- **Once across,** the Company joins the PCs' armies, takes orders like any of them, and
+  draws supply normally.
+
+#### After the war
+
+- **The Company survives:** at the Reckoning, gain **1 Fame**. Restov's swordlords now
+  count the PCs as true allies. Jamandi may also offer the Aldori duelist archetype
+  (*Lost Omens World Guide* p. 25, as p. 599 suggests) to a PC who fought alongside them.
+- **The Company is destroyed:** gain **1 Unrest**. Restov grieves, and some swordlords
+  mutter that the PCs spent Restov's sons and daughters carelessly.
+- **The debt:** either way, Restov will remember it sent help. Use this as a political
+  hook in later chapters.
+
+### Reinforcements (from War Clock escalations)
 
 **PITAX SIEGE BATTERY** — ARMY 9
 *N Siege, Mercenary*
@@ -334,7 +368,6 @@ Dawn through the fiction: a messenger, smoke, a rumor, a corpse on a gibbet.
 | **4** | *Iron Curfew* | Drelev tightens his grip on the town. Lose 1 banked LP. When Part 2's infiltration begins, every infiltration DC (p. 303) is +1. |
 | **6** | *The Pay Convoy* | A Pitaxian wagon train of silver sets out to pay the mercenaries. **Mission 7** becomes available. |
 | **8** | *A Price on Their Heads* | Posture → **Offensive**. Drelev posts a bounty on the PCs. On the next day they travel, they meet a band of bounty hunters (a Moderate 11 encounter of your choice). |
-| **10** | *Word from the North* | Drelev's old Brevic contacts send **the Uncolored Lances**, House Surtova's deniable household cavalry, down the East Sellen road. They reach Wyvernstone Bridge 3 days later and Fort Drelev 2 days after that. Mission 1 becomes available. Reveal this through a captured letter, a Scout the Front success, or Kisandra. The players should learn it's coming. |
 | **12** | *Pitax's Loan* | The **Pitax Siege Battery** arrives at Fort Drelev. |
 | **16** | *The Wall Is Finished* | Posture → **Total War**. Drelev finally closes the gap in Fort Drelev's wall (B1, p. 301). See §8: the wall now counts as a full Wooden Wall. |
 | **20** | *Armag's Gift* | The **Tiger Lord Warband** rides in from the western map edge. |
@@ -362,8 +395,12 @@ not an army. It becomes worth the detour if one of these reasons comes up:
   (§4). If their raids are hurting, holding or breaking the bridge forces them through
   the Slough as greater difficult terrain, which effectively ends their raids on your
   core hexes.
-- **The Uncolored Lances** (War Clock 10). Holding or breaking the bridge before they
-  arrive keeps a whole enemy army out of the war.
+- **Restov's relief.** The Swordlords' Company comes down the East Sellen road and must
+  cross here (§4, *Allied Relief from Restov*). Once Drelev sends the Free Company to
+  hold the bridge against them, the PCs can storm it from the south while the duelists
+  attack from the north. That's a two-front named battle in which the PCs' armies and
+  the Company fight together. Breaking the bridge to stop the Tiger Lords also delays
+  Restov by 5 days, so the two hooks pull against each other.
 - **Drelev's escape route.** If Drelev reaches **Entrenched** posture (§4), he quietly
   readies a flight north to Brevoy. If the bridge is open when the PCs finally corner
   him, he may flee instead of fighting in his keep. That's a reason to hold it late in
@@ -599,5 +636,5 @@ and the Collapse of Will crisis still applies.
   the boggards, or to burn the Forward Camp, and comes back to find out whether
   the line held.
 - **The bridge is a side road.** Don't steer the players north. Let the Outriders'
-  raids or the Uncolored Lances give them a reason, and let them decide if it's
+  raids or Restov's relief column give them a reason, and let them decide if it's
   worth the detour.
