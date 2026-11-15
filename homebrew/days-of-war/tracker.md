@@ -46,6 +46,7 @@ Escalations triggered: ______________________
 | M'botuu Frog Riders | Drelev → Ours? | 10 Cav | HT6 | Patrol | 6/6 | | | Old Loyalties | | — | |
 | Hooktongue Raiders | Drelev | 8 Skr | Slough | Raid | 4/4 | | | | LotL | | |
 | Tiger Lord Outriders | Drelev | 10 Cav | (Day 2) | Raid | 4/4 | | | | | — | |
+| Speartooth's Pride | Drelev | 11 Cav | DR1 | Hunt | 6/6 | | | collar intact | | — | |
 
 ## Hexes
 

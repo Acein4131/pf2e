@@ -188,6 +188,7 @@ Enemy armies are built on the Basic Armies by Level table (Appendix 3), assuming
 | M'botuu Frog Riders | 10 Cavalry (p. 572) | M'botuu | Patrol M'botuu (see *Old Loyalties*) |
 | Hooktongue Raiders | 8 Skirmisher | Hidden camp in Hooktongue Slough (GM places, near M'botuu) | Raid |
 | Tiger Lord Outriders | 10 Cavalry | Arrive from the western map edge at **Dusk on Day 2** | Raid |
+| Speartooth's Pride | 11 Cavalry (beasts) | Speartooth's Den (DR1) | Hunt |
 | *Drelev Irregulars* (if they survived Part 1) | 7 Infantry (p. 297) | Fort Drelev | Hold |
 | *Troll Marauders* (if they survived Part 1) | 8 Infantry (p. 297) | Forward Camp | Hold |
 
@@ -292,6 +293,58 @@ On a failure, it rides home to the hills and leaves the campaign.
 can't cross the Slough quickly, so they ride north and **cross the East Sellen at
 Wyvernstone Bridge**, then strike at your Greenbelt and Tuskwater hexes from the
 northwest. (This is one of the bridge hooks in Mission 1.)
+
+**SPEARTOOTH'S PRIDE** — ARMY 11
+*N Cavalry (beasts), unique*
+**Scouting** +23 (+2 adjustment: scent and stalking), low-light vision; **Recruitment
+DC** — (can't be recruited); **Consumption** 3 (raw meat, and plenty of it)
+**Description** Drelev has done the unthinkable: he has leashed **Speartooth**, the
+man-eating smilodon that killed two dozen of his own guards (DR1, p. 104).
+**Imeckus Stroon**, the baroness's wizard brother, fitted the old cat with an iron
+**collar of binding**. Tiger Lord beast-callers, who revere Speartooth as half a god,
+agreed to tend it. Where Speartooth goes, lesser sabertooths and great cats from the
+hills follow. Some carry painted Tiger Lord riders, some run loose, and all hunt
+together around the great scarred cat at their center. Drelev's own guards hate and
+fear the thing.
+**AC** 31; **Maneuver** +24 (high); **Morale** +20 (low, +2 adjustment: Speartooth's
+presence)
+**HP** 6 (RT 3)
+**Melee** fangs and claws +25 (+1 adjustment)
+**Tactics** Overrun, Merciless, Reckless Flankers
+**Pounce from the Grass** (unique tactic) In any battle **outside a swamp**, if the
+Pride acts before an enemy army in the first round, it can start the encounter
+**engaged** with that army and immediately make one melee Strike against it as a free
+action. This Strike doesn't count toward its multiple attack penalty.
+**Pierce Armor** (unique tactic) When the Pride critically hits an army with a melee
+Strike, that army is also **outflanked** until the end of its next turn, its lines torn
+open.
+**Terror of the Hills** (unique tactic) Every army that isn't on Drelev's side takes a
+−1 status penalty to Morale checks while engaged with the Pride. Armies of hunters,
+such as the **Longbows of Old Deadeye** and the **Narlmarch Hunters**, are immune: they
+know how to face a big cat. Tiger Lord armies on Drelev's side gain a +1 status bonus
+to Morale while the Pride is on the battlefield.
+**Cats Hate Water** (unique) The Pride **never enters Slough swamp hexes** willingly.
+If it's forced to fight in one, it loses Pounce from the Grass and takes −2 to Maneuver
+on top of the usual difficult-terrain penalty.
+**Hunger** (unique) If the Pride is **unsupplied** at Night, it doesn't become weary.
+Instead it feeds: it raids the nearest hex within 2, **regardless of whose it is**
+(including Drelev's). If no hex is in range, the collar can't hold it, and the Pride
+breaks free (see *The Collar*).
+**Hunt** (standing order) Each Dusk, the Pride moves toward the nearest of your armies
+within 4 hexes that **isn't in a swamp hex** and attacks it. If none is in range, it
+returns to its den (DR1) or the Forward Camp to be fed.
+**Commander: Speartooth** (Creature 14, p. 104), the beast itself. In Strike the
+Commander, the PCs fight Speartooth (and, if you like, a Tiger Lord beast-caller or
+two) while the armies clash.
+- **Speartooth slain:** the Pride is immediately **routed** and **destroyed** at the end
+  of the battle as the lesser cats scatter into the hills. Apply Mission 6's reward.
+- **The Collar:** Speartooth wears Imeckus's collar of binding. A PC adjacent to
+  Speartooth can **break it** (Thievery DC 32 using 2 actions, or *dispel magic* against
+  counteract DC 30). Killing or capturing **Imeckus Stroon** has the same effect. Once
+  the collar breaks, the Pride turns feral and leaves Drelev's service at once. It
+  returns to DR1 and becomes a **hostile wild army** that attacks any army, from either
+  side, that enters DR1 or a neighboring hex. If the collar breaks mid-battle,
+  Speartooth turns on the nearest Drelev army or commander first.
 
 ### Allied Relief from Restov
 
@@ -592,10 +645,18 @@ hex without a friendly army there, the escort fails.
   when Kingdom turns resume.
 
 ### Mission 6 — Speartooth (DR1)
-Hunt the legendary smilodon (p. 104).
-- **Reward:** The Tiger Lords revere Speartooth, so its death is a dire omen. Every
-  Tiger Lord army immediately attempts a DC 28 Morale check and **leaves the campaign**
-  on a failure. The 2,000 gp bounty is paid as written.
+Speartooth now fights for Drelev as **Speartooth's Pride** (§4). The PCs can face it in
+a battle with Strike the Commander, or hunt the beast directly. Track it to its den
+(DR1, p. 104) at night while the Pride is being fed, or lure it out with bait away from
+the rest of the pack (a Severe 14 encounter on its own, so be careful).
+- **Reward for killing Speartooth:** the Pride is destroyed (War Clock −2, as for any
+  destroyed army). The Tiger Lords revere Speartooth, and its death is a dire omen:
+  every Tiger Lord army immediately attempts a DC 28 Morale check and **leaves the
+  campaign** on a failure. Drelev's guards are quietly relieved, so bank +1 LP. The
+  2,000 gp bounty is paid as written.
+- **Reward for freeing it instead** (breaking the collar or dealing with Imeckus): the
+  Pride leaves Drelev without the Tiger Lords' Morale check, since their god-beast still
+  lives. Speartooth remains a dangerous wild force at DR1.
 
 ### Mission 7 — The Pay Convoy (triggered at Clock 6)
 A convoy of wagons and Pitaxian guards (a Severe 11 encounter) appears on the
@@ -633,7 +694,7 @@ the occupying troops panic and disband.
 | 10 | **Deserters.** One of your armies that is shaken or unsupplied must succeed at a DC 20 Morale check or take 1 damage. If none qualifies, deserters from Drelev's side reach you instead: reveal one enemy army. |
 | 11 | **Refugee column.** Families fleeing the raids reach your nearest settlement. Take them in (−1 WC, Strain −1), or turn them away (your next Rally the Home Front takes −2). |
 | 12 | **Spy in the camp.** Attempt an Intrigue check (Control DC). On a failure, War Clock +1 and the enemy gets +2 initiative in its next battle against you. |
-| 13 | **Speartooth hunts.** One army (either side) within 2 hexes of DR1 takes 1 damage. If it's yours, a Wilderness check (Control DC) prevents it. This is a hook for Mission 6. |
+| 13 | **The Pride hunts.** While Speartooth's Pride serves Drelev, one of your armies within 4 hexes of it (outside a swamp) is stalked overnight. It takes 1 damage unless you succeed at a Wilderness check (Control DC; the Longbows of Old Deadeye give +2 if they're in that army's hex). If the Pride is gone, treat this as a quiet day. |
 | 14 | **Courier caught.** You intercept a Pitaxian message. Treat it as a free successful Scout the Front on any hex. |
 | 15 | **Volunteers.** A settlement rallies behind you. Gain +2 WC, or reduce one army's shaken value by 1. |
 | 16 | **Fey omens.** Nyrissa's attention brushes the war. An ankou (zone 11 table, p. 103) shadows the party, and one Wild hex of your choice becomes greater difficult terrain until the war ends. |
