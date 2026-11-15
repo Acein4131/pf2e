@@ -504,11 +504,13 @@ Use Appendix 3's **Determining Victory** (Warfare) or **Determining Loss**
 1. **Supply.** Check each of your armies (§6). Enemy armies follow the same rule
    unless the campaign says otherwise.
 2. **Rest.** Supplied armies that didn't move reduce weary by 1.
-3. **Sieges.** Resolve each siege's nightly check (§8).
-4. **Contested hexes.** With 3 or more, Strain +1.
-5. **Every 5th day:** Pay Day (§6) and war fatigue (Strain +1).
-6. **War Clock +1.**
-7. **Thresholds.** Apply any new Home Front Crisis, then any new War Clock escalation.
+3. **Terrain hazards.** Resolve any campaign-specific terrain checks, such as the
+   Drelev campaign's Slough Check.
+4. **Sieges.** Resolve each siege's nightly check (§8).
+5. **Contested hexes.** With 3 or more, Strain +1.
+6. **Every 5th day:** Pay Day (§6) and war fatigue (Strain +1).
+7. **War Clock +1.**
+8. **Thresholds.** Apply any new Home Front Crisis, then any new War Clock escalation.
    (Escalations are announced or take effect at the next Dawn.)
 
 ---

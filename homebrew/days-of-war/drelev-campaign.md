@@ -59,6 +59,79 @@ This kit assumes the kingdom described below. Adjust it if yours differs.
 > M'botuu (if reclaimed) → the Forward Camp → Fort Drelev. Drelev's best strategy is to
 > raid that chain and use the boggards to make the Slough deadly.
 
+### The Slough Takes Its Toll
+
+Hooktongue Slough doesn't just slow armies down. It grinds them apart: fever,
+leeches, rotting boots, spoiled stores, and things in the water. These rules apply to
+**every army, on either side**, in a swamp hex of zone 10 (not the drier hexes in the
+zone's northeast).
+
+**In battle.** Every war encounter fought in a Slough hex uses the book's **Difficult
+Terrain** battlefield feature (Appendix 3): −2 circumstance penalty to Maneuver checks.
+Armies with Amphibious, Water Stride, or Swamp Dwellers ignore it, as their stat blocks
+say.
+
+**The Slough Check (each Night).** At Night, after supply, every army that ends the
+day in a Slough hex attempts a **Maneuver check** (the Maneuver statistic is for
+"unusual physical dangers," Appendix 3) against the **Slough DC**:
+
+> **Slough DC = 23, +1 for each consecutive Night after the third** that the army has
+> spent in the Slough (4th Night DC 24, 5th DC 25, and so on).
+
+The count of consecutive Nights resets once the army spends a Night outside the Slough
+or **inside a friendly Slough settlement**: Tok-Nikrat (with the Scouts present) or a
+reclaimed M'botuu. An army camped in a friendly Slough settlement doesn't roll at all.
+
+| Modifier | Bonus/penalty |
+| --- | --- |
+| The army benefits from *Swamp Guides* (your bog striders, or the Hooktongue Raiders' boggards) | +2 circumstance |
+| The army is in a hex with a **causeway** (below) | +2 circumstance (if guides also apply, the total is +3) |
+| The army is **unsupplied** tonight | −2 circumstance |
+| **Cavalry** (horses founder and sicken) | −2 circumstance |
+| **Siege** (engines sink) | −4 circumstance |
+| The army has Amphibious, Water Stride, or Swamp Dwellers (Frog Riders, Tok-Nikrat Scouts, lizardfolk) | no check needed |
+
+- **Critical Success** The army weathers the night. If it's weary, it reduces weary
+  by 1 even if it moved today.
+- **Success** No effect.
+- **Failure** Roll once on the **Slough Hazards** table.
+- **Critical Failure** Roll twice on the Slough Hazards table (reroll duplicates), and
+  increase weary by 1.
+
+**Slough Hazards (d8)**
+
+| d8 | Hazard | Effect |
+| --- | --- | --- |
+| 1 | **Marsh fever** | Weary +1. The fever lingers: the army can't reduce weary by resting until it has spent a Night outside the Slough or in a friendly Slough settlement. A **Recover Army** Command for weary (Defense, or Arts at expert, per Appendix 3) also ends the fever. |
+| 2 | **Fever spreads** | As Marsh fever. Also, one other army of the same side in the same hex must attempt a Slough check against the same DC immediately. |
+| 3 | **The sucking mire** | Mired 2 until the end of tomorrow's March or Dusk phase, so the army will likely lose its movement tomorrow. Siege armies also take 1 damage as an engine sinks. |
+| 4 | **Spoiled stores** | Damp and rot ruin its food and bowstrings. The army is **unsupplied tonight** even if a supply source is in range (pay 1 WC or weary +1), and an army with ranged Strikes starts its next war encounter with 2 fewer shots. |
+| 5 | **Leeches and rot** | Feet rot, armor rusts, and soldiers sicken. Weary +1. |
+| 6 | **Will-o'-wisps** | Ghost lights draw sentries into the deep water, and some never come back. Shaken +1. |
+| 7 | **Something in the water** | A predator from the zone 10 table (p. 95) hits the camp. The army takes 1 damage. If any PC is in the hex, the PCs can fight that encounter instead. If they win, the army takes no damage. |
+| 8 | **Boggard war-party** | While Drelev holds M'botuu, boggards raid the camp: 1 damage, and the army becomes shaken 1. If the PCs have **reclaimed M'botuu**, the boggards bring frogs and eels instead: the army is supplied tonight and reduces weary by 1. (Drelev's armies always take the bad version once M'botuu is reclaimed.) |
+
+**Lake Hooktongue.** An army that **critically fails** a Slough check in a hex bordering
+Lake Hooktongue (HT7) wakes **Hooktongue** himself (HT7, p. 97). The army takes 2 damage, and
+the water orm becomes a roaming threat on the lake for the rest of the war. This is a
+dramatic event; the PCs may want to deal with it as an encounter.
+
+**Lay a Causeway (Command).** *Engineering or Wilderness*, DC = Control DC, **1 WC**,
+in person or by courier. Choose a Slough hex where one of your armies is present. Your
+soldiers lay brush-and-log causeways and mark the safe ground.
+- **Critical Success** As success, and it costs no WC.
+- **Success** For the rest of the war, the hex has a causeway. Your armies get +2 on
+  Slough checks there (enemy armies don't; they don't know the markings), and it counts
+  as difficult terrain instead of greater difficult for your armies.
+- **Failure** The work sinks. The WC is spent.
+- **Critical Failure** As failure, and the working army becomes weary 1.
+
+> **Why this matters.** The Slough is the PCs' road to Drelev. Each night there is a
+> real cost, so the war becomes a question of how fast they can cross, where they can
+> rest, and how much they're willing to spend on causeways, guides, and reclaiming
+> M'botuu. It also cuts both ways: if Drelev's field armies chase the PCs into the
+> swamp, they suffer just as much, and the PCs' guides give them the edge.
+
 ---
 
 ## 3. Setup (Day 0)

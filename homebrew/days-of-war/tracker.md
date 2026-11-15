@@ -32,20 +32,20 @@ Escalations triggered: ______________________
 
 ## Armies
 
-| Army | Side | Lvl / Type | Hex | Order | HP | Shaken | Weary | Other conditions | Supplied? | Doubt |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| | Ours | | | | / | | | | | — |
-| | Ours | | | | / | | | | | — |
-| | Ours | | | | / | | | | | — |
-| Drelev Fort Guard | Drelev | 9 Inf | DR2 | Hold | 4/4 | | | fortified | | |
-| Tok-Nikrat Scouts | Ours | 10 Skr | HT12 | | 4/4 | | | swamp guides | | — |
-| Swordlords' Company (Restov) | Ours (Day 7, north edge) | 10 Skr | East Sellen road | | 5/5 | | | Restov's Purse | | — |
-| Longbows of Old Deadeye (Erastil) | Ours (if raised) | 8 Skr | | | 4/4 | | | 7 shots, Blessing 1/battle | LotL | — |
-| Pitaxian Free Company | Drelev | 10 Skr | Fwd Camp | Hold | 4/4 | | | | LotL | |
-| Drelev Stonethrowers | Drelev | 10 Inf | Fwd Camp | Hold | 6/6 | | | | | |
-| M'botuu Frog Riders | Drelev → Ours? | 10 Cav | HT6 | Patrol | 6/6 | | | Old Loyalties | | — |
-| Hooktongue Raiders | Drelev | 8 Skr | Slough | Raid | 4/4 | | | | LotL | |
-| Tiger Lord Outriders | Drelev | 10 Cav | (Day 2) | Raid | 4/4 | | | | | — |
+| Army | Side | Lvl / Type | Hex | Order | HP | Shaken | Weary | Other conditions | Supplied? | Doubt | Slough nights |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | Ours | | | | / | | | | | — | |
+| | Ours | | | | / | | | | | — | |
+| | Ours | | | | / | | | | | — | |
+| Drelev Fort Guard | Drelev | 9 Inf | DR2 | Hold | 4/4 | | | fortified | | | |
+| Tok-Nikrat Scouts | Ours | 10 Skr | HT12 | | 4/4 | | | swamp guides | | — | |
+| Swordlords' Company (Restov) | Ours (Day 7, north edge) | 10 Skr | East Sellen road | | 5/5 | | | Restov's Purse | | — | |
+| Longbows of Old Deadeye (Erastil) | Ours (if raised) | 8 Skr | | | 4/4 | | | 7 shots, Blessing 1/battle | LotL | — | |
+| Pitaxian Free Company | Drelev | 10 Skr | Fwd Camp | Hold | 4/4 | | | | LotL | | |
+| Drelev Stonethrowers | Drelev | 10 Inf | Fwd Camp | Hold | 6/6 | | | | | | |
+| M'botuu Frog Riders | Drelev → Ours? | 10 Cav | HT6 | Patrol | 6/6 | | | Old Loyalties | | — | |
+| Hooktongue Raiders | Drelev | 8 Skr | Slough | Raid | 4/4 | | | | LotL | | |
+| Tiger Lord Outriders | Drelev | 10 Cav | (Day 2) | Raid | 4/4 | | | | | — | |
 
 ## Hexes
 
@@ -112,11 +112,12 @@ Escalations triggered: ______________________
 
 1. Supply each army (within 2 hexes of a source, or pay 1 WC, or weary +1)
 2. Rest: supplied armies that didn't move get weary −1
-3. Sieges: nightly Defense check, Strain +1 per besieged settlement
-4. 3+ Contested hexes → Strain +1
-5. ★ Pay Day and war fatigue
-6. War Clock +1
-7. Check Strain crises, then Clock escalations
+3. Slough check for every army in a swamp hex (DC 23, +1 per consecutive Night after the 3rd)
+4. Sieges: nightly Defense check, Strain +1 per besieged settlement
+5. 3+ Contested hexes → Strain +1
+6. ★ Pay Day and war fatigue
+7. War Clock +1
+8. Check Strain crises, then Clock escalations
 
 ## Reckoning (end of war)
 
