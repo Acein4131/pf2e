@@ -168,6 +168,17 @@ loses this benefit, so Drelev will hunt them.
 | Costly Victory | Clock 2, Strain +1. |
 | Total Defeat | Clock 4, Strain +3. Tatzlford starts **enemy-held**, garrisoned by any surviving Drelev Irregulars and Troll Marauders (p. 297). Retaking it comes first. |
 
+### Scheduled Arrivals
+
+These happen on fixed days unless the PCs' actions change them. Announce each at Dawn.
+
+| Day | Event |
+| --- | --- |
+| 2 (Dusk) | The Tiger Lord Outriders arrive from the western map edge (§4). |
+| 7 | The Swordlords' Company from Restov appears on the East Sellen road (§4, *Allied Relief from Restov*). |
+| 10 | The Lodovka River Fleet appears on the East Sellen at the north map edge (§4). |
+| 10 | Melody Salticidae arrives in High Aquanedge. |
+
 ---
 
 ## 4. Drelev's Order of Battle

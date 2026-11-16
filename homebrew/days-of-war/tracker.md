@@ -79,15 +79,15 @@ Escalations triggered: ______________________
 | Day | Dawn event (d20) | Party (where / what) | Commands (PC: command → result) | Battles / raids / sieges | Night: WC / Strain / Clock |
 | --- | --- | --- | --- | --- | --- |
 | 1 | | | | | / / |
-| 2 | | | | | / / |
+| 2 | Tiger Lord Outriders arrive at Dusk | | | | / / |
 | 3 | | | | | / / |
 | 4 | | | | | / / |
 | 5 ★ | | | | | / / |
 | 6 | | | | | / / |
-| 7 | | | | | / / |
+| 7 | Swordlords' Company arrives (East Sellen road) | | | | / / |
 | 8 | | | | | / / |
 | 9 | | | | | / / |
-| 10 ★ | | | | | / / |
+| 10 ★ | Lodovka fleet arrives; Melody Salticidae arrives in High Aquanedge | | | | / / |
 | 11 | | | | | / / |
 | 12 | | | | | / / |
 | 13 | | | | | / / |
