@@ -477,6 +477,111 @@ as escorting the refugees, defending a shrine from raiders, or answering a templ
 for help. As a specialized army, their level adjusts to your kingdom level when they
 join (Appendix 3).
 
+### Allied Army: The Lodovka River Fleet
+
+House **Lodovka** has worked the waters of the Lake of Mists and Veils since before
+Brevoy existed. Their motto is "The Waters, Our Fields" (Chapter 1, p. 12). When word
+reaches the north that a Brevic baron has shut the East Sellen trade route and made war
+on Restov's charter-holders, the house sends **Swin Lodovka** south with a flotilla of
+armed keelboats and river galleys.
+
+**THE LODOVKA RIVER FLEET** — ARMY 11
+*N Infantry (naval), allied specialized army*
+**Scouting** +21; **Recruitment DC** 33 (+5 adjustment); **Consumption** 2
+**Description** A dozen shallow-draft longships and keelboats crewed by Lodovka
+rivermen, marines, and boarding crews. Their decks bristle with mounted ballistae and
+crossbows, and their prows are carved with the house's sea-serpent. They fight from the
+water, where landlocked armies can't reach them, and they come ashore only when they
+choose to.
+**AC** 31; **Maneuver** +18 (low); **Morale** +24 (high)
+**HP** 6 (RT 3)
+**Melee** boarding axes and cutlasses +24
+**Ranged** deck ballistae and crossbows +24 (7 shots)
+**Tactics** Increased Ammunition, Hold the Line
+**Waterborne** (unique) The fleet moves only along navigable water: the East Sellen,
+Lake Hooktongue, and the Slough's channels. It can't enter a hex without a river or
+lake.
+- **River or lake hexes:** 3 activities per day, treating them as open terrain.
+  Downstream on the East Sellen, it gets 4 activities.
+- **Slough channels:** difficult terrain. Lodovka pilots read water the way bog
+  striders do.
+- **Slough Check:** the fleet still rolls, because fever and leeches reach sailors too,
+  but it gets a +4 circumstance bonus. It never suffers *The sucking mire*; treat that
+  result as no effect.
+
+**The Waters, Our Fields** (unique tactic) In any battle in a river or lake hex, armies
+that can't swim or fly **can't Advance to engage** the fleet. Only ranged Strikes reach
+it. The fleet also gains a +2 circumstance bonus to Maneuver checks there. It can
+choose to engage a shore army by putting marines ashore, but then it loses this benefit
+until the next war encounter.
+
+**Ballista Decks** (unique tactic) The fleet can use Battle with its ranged Strike to
+damage **fortifications that border water**, as a siege army can. Fort Drelev qualifies:
+it has two water borders and two piers on Lake Hooktongue (DR2, p. 104). This is the PCs'
+best way to crack the fort without dragging siege engines through the swamp.
+
+**Ferry** (unique) The fleet can carry **one other army** with it along the water. That
+army moves at the fleet's speed, is treated as supplied, and doesn't roll Slough Checks
+while aboard. It disembarks into any hex the fleet is in or adjacent to. While the fleet
+is in a river hex, any of your armies can cross that river there with no penalty.
+
+**Wooden Hulls** (unique) When an army with Flaming Shot, or any siege army, critically
+hits the fleet, the fleet takes 1 additional damage.
+
+**Floating Supply** (unique) The fleet is its own supply source, but only for itself and
+any army it carries. Its holds are full of salt fish and Brevic grain.
+
+#### Swin Lodovka
+
+**Commander** **Swin Lodovka**, captain of the flotilla and a scion of House Lodovka. Use
+a level 12–13 captain or pirate NPC, or adapt Ameon Trask (p. 298) with the elite
+adjustments, a swim speed of 25 feet, and Athletics in place of Acrobatics as his best
+skill. Lodovka family members are trained in Athletics and Fishing Lore and have the
+Underwater Marauder feat (p. 12).
+
+When Swin is present for Strike the Commander, he leads boarding actions personally.
+If he is killed or captured, the fleet becomes shaken 2 and retreats 1 hex upriver at
+the next Dusk.
+
+#### Getting the fleet into the war
+
+- **When:** the fleet appears at the **north map edge on the East Sellen** on **Day 10**
+  by default. Set your own day if you prefer, or let the PCs send word north to bring it
+  sooner, the same way as Write to Restov.
+- **Wyvernstone gorge:** the river runs beneath Wyvernstone Bridge (HT1) on its way
+  south.
+  - **Drelev army holds the bridge:** the fleet must run the gorge under falling rocks
+    and arrows. It attempts a Maneuver check against that army's Standard DC. On a
+    failure it takes 1 damage, and on a critical failure it takes 2 damage and loses a
+    day.
+  - **Bridge broken:** the rubble chokes the gorge, and **the fleet can't pass** until
+    the channel is cleared. Clearing it takes 3 days of work by the fleet plus a
+    successful Engineering Command. Breaking the bridge now blocks both Restov's road
+    and Lodovka's river. The players should weigh that.
+- **After the gorge,** the river carries the fleet into the Slough and on to Lake
+  Hooktongue, right up to Fort Drelev's piers.
+- **Hooktongue.** Each Night the fleet spends on Lake Hooktongue, roll a d20. On a 1, the
+  water orm Hooktongue (HT7, p. 97) rises beneath the boats. The fleet takes 2 damage,
+  and Hooktongue becomes a roaming threat if it wasn't already.
+
+#### After the war
+
+House Lodovka wants payment, though not in coin. At the Reckoning, Swin asks the PCs to
+promise **Lodovka trading rights on the East Sellen and Lake Hooktongue**, including
+berths at Fort Drelev's piers if the PCs take it.
+- **Grant it:** gain 1 Fame. The river trade route reopens under Lodovka's protection.
+  Brevoy's other houses will notice that the PCs have a Lodovka friend.
+- **Refuse:** Lodovka sails home. Increase Unrest by 1 as the river merchants complain,
+  and House Lodovka remembers it.
+
+> **Running the fleet as an enemy instead.** The stat block works unchanged if House
+> Lodovka sides with Drelev, for example because he promised them the river trade. Put
+> the fleet on the East Sellen on Day 10 and have it sail to Lake Hooktongue to garrison
+> Fort Drelev's piers. *The Waters, Our Fields* then makes the lakefront nearly
+> unassailable, and *Ferry* lets Drelev move an army across the Slough quickly. That's a
+> strong reason for the PCs to break or hold Wyvernstone Bridge. Use the Restov
+> duelists, or the Tok-Nikrat Scouts with *Water Stride*, to fight it.
+
 ### Reinforcements (from War Clock escalations)
 
 **PITAX SIEGE BATTERY** — ARMY 9
