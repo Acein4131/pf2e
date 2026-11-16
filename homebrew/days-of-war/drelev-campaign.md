@@ -625,10 +625,9 @@ as his best skills.
 - **Icarus on the field:** the Royal Guard gains a +1 circumstance bonus to Morale checks.
 - **Icarus falls:** if he's killed or captured, the Guard immediately becomes shaken 2,
   and Strain +1 as word of his death reaches the capital.
-- **Personal service:** if Icarus fights alongside the PCs in Strike the Commander, he
-  can use Interpose's spirit at the PC scale. Once per encounter, he can take a hit
-  meant for an adjacent PC (as the Shield Block reaction, using the PC's attacker's
-  damage).
+- **Personal service:** if Icarus fights alongside the PCs in Strike the Commander,
+  once per encounter he can use his Shield Block reaction to protect an adjacent PC
+  instead of himself.
 
 ### Reinforcements (from War Clock escalations)
 
