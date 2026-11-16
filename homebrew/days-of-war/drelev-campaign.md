@@ -582,6 +582,54 @@ berths at Fort Drelev's piers if the PCs take it.
 > strong reason for the PCs to break or hold Wyvernstone Bridge. Use the Restov
 > duelists, or the Tok-Nikrat Scouts with *Water Stride*, to fight it.
 
+### Allied Army: The Royal Guard
+
+**THE ROYAL GUARD OF THE STOLEN LANDS** — ARMY 8
+*Infantry (the PCs' own army; its alignment matches the kingdom's)*
+**Scouting** +16; **Recruitment DC** 24 (Warfare); **Consumption** 1
+**Description** The crown's own soldiers, the best-armed and most trusted fighters in
+the kingdom. They were raised in the capital at the Stag Lord's old fort and sworn
+personally to the PCs. They wear the kingdom's colors over polished mail and carry
+halberds, longswords, and heater shields. Most were the first settlers to take up arms
+after the Stag Lord fell, and they remember what the Stolen Lands were like before the
+PCs came.
+**AC** 28 (+1 adjustment: the kingdom's best armor); **Maneuver** +13 (low); **Morale**
++21 (high, +2 adjustment: sworn to the crown)
+**HP** 5 (RT 2)
+**Melee** halberds and longswords +20; **Ranged** crossbows +19 (−1 adjustment;
+5 shots)
+**Tactics** Focused Devotion, Hold the Line, Toughened Soldiers
+**Interpose** [reaction] (unique tactic) **Trigger** An enemy army that is engaged with
+both the Royal Guard and another allied army hits that other army with a melee Strike.
+**Effect** The Guard steps into the gap. The Royal Guard takes the damage instead of the
+target. If the hit was a critical hit, the Guard takes only 1 damage.
+**Shield of the Crown** (unique) When the PCs Strike the Commander in a battle where the
+Royal Guard is present, the war encounter's result **isn't worsened** if the PCs lose
+their fight or the enemy commander escapes. The Guard closes ranks around its
+sovereigns. A PC victory still improves the result as normal.
+**Palace Garrison** (unique) In the capital, the Guard's Fortify Command automatically
+succeeds (no check), and while it's there, the capital's raid and siege Defense checks
+get a +2 circumstance bonus.
+**Oath to the Throne** (unique) The Guard serves the crown, not the war. It can't leave
+the kingdom's Friendly hexes **unless at least one PC travels with it** (Escort order).
+If the PCs leave it behind outside the kingdom, it marches straight back toward the
+capital at the next March phase. Use it to guard the heartland, or keep it at the
+PCs' side as a bodyguard. It can't do both.
+
+#### Captain Icarus
+
+**Commander** **Icarus**, captain of the Royal Guard. Use a level 9–10 guard captain or
+fighter NPC. A quick option is Ameon Trask's statistics (p. 298) without Sneak Attack and
+Twin Feint, with a shield (Shield Block) and a longsword, and Diplomacy and Intimidation
+as his best skills.
+- **Icarus on the field:** the Royal Guard gains a +1 circumstance bonus to Morale checks.
+- **Icarus falls:** if he's killed or captured, the Guard immediately becomes shaken 2,
+  and Strain +1 as word of his death reaches the capital.
+- **Personal service:** if Icarus fights alongside the PCs in Strike the Commander, he
+  can use Interpose's spirit at the PC scale. Once per encounter, he can take a hit
+  meant for an adjacent PC (as the Shield Block reaction, using the PC's attacker's
+  damage).
+
 ### Reinforcements (from War Clock escalations)
 
 **PITAX SIEGE BATTERY** — ARMY 9

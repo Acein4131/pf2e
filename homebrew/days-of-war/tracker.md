@@ -42,6 +42,7 @@ Escalations triggered: ______________________
 | Swordlords' Company (Restov) | Ours (Day 7, north edge) | 10 Skr | East Sellen road | | 5/5 | | | Restov's Purse | | — | |
 | Longbows of Old Deadeye (Erastil) | Ours (if raised) | 8 Skr | | | 4/4 | | | 7 shots, Blessing 1/battle | LotL | — | |
 | Lodovka River Fleet (Swin Lodovka) | Ours (Day 10, East Sellen) | 11 Inf (naval) | | | 6/6 | | | 7 shots, Ferry | self-supplied | — | |
+| Royal Guard (Capt. Icarus) | Ours | 8 Inf | Capital | | 5/5 | | | Oath to the Throne | | — | |
 | Pitaxian Free Company | Drelev | 10 Skr | Fwd Camp | Hold | 4/4 | | | | LotL | | |
 | Drelev Stonethrowers | Drelev | 10 Inf | Fwd Camp | Hold | 6/6 | | | | | | |
 | M'botuu Frog Riders | Drelev → Ours? | 10 Cav | HT6 | Patrol | 6/6 | | | Old Loyalties | | — | |
