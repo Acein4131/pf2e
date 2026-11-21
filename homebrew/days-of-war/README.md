@@ -26,6 +26,7 @@ starve it first.
 | --- | --- |
 | [`rules.md`](rules.md) | The core system: daily turn structure, the three tracks (War Chest, Home Front Strain, War Clock), Commands, army movement and supply, raids, sieges, clashes, and the Reckoning at the end. It works for any war, not just Drelev. |
 | [`drelev-campaign.md`](drelev-campaign.md) | The Fort Drelev war kit: setup, theater map notes, Drelev's order of battle with army stat blocks, the War Clock escalations, missions for the party, a daily events table, and how the campaign feeds into the module's Liberation Points and the assault on Drelev Keep. |
+| [`day-sheet.md`](day-sheet.md) | The at-the-table run sheet: daily turn order, every Command with its outcomes, daily events, Slough Check and hazards, Dusk raids/sieges/battles, escalations, and crises. |
 | [`tracker.md`](tracker.md) | A printable/copyable sheet for tracking the war day by day. |
 
 ## What it borrows from the book
