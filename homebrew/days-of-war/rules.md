@@ -169,6 +169,7 @@ whole kingdom.
 | **Recover Army** | per Appendix 3 table | Control (+5 for defeated) | Remove an army condition. |
 | **Drill** | Scholarship, Warfare | Tactic's Training DC | Teach a resting army a tactic. |
 | **Outfit** | Trade (costs WC), Warfare (captured gear) | Control | Give an army gear. |
+| **Outfit: Reinforce** | Trade, Warfare | Standard DC of the new level | Raise an army's level, up to kingdom level −2 (2 WC). |
 | **Offensive Gambit** | Intrigue, Warfare | Enemy Scouting DC | Set up an attack with an initiative edge. |
 | **Sabotage** | Intrigue, Magic | Enemy Scouting DC (+5 if fortified) | Weary, shake, or damage an enemy army or depot. |
 | **Turn Their Coin** | Statecraft, Trade | Enemy Standard DC + 2 | Sow doubt in a mercenary army until it deserts. |
@@ -257,6 +258,51 @@ moving.
 5 RP** of the gear's listed cost (round up) instead of RP. When distributing
 captured gear with Warfare, it's free, but you must have won a battle in the
 last 3 days.
+
+**Outfit: Reinforce** (Trade to buy fresh recruits and better kit, or Warfare to fold
+veterans and captured gear into the ranks). Fresh soldiers, better arms, and hard
+drilling bring a weaker army up to the kingdom's standard.
+- **Requirements:**
+  - The army is in a friendly settlement or depot hex.
+  - It doesn't move today.
+  - Its level is lower than **your kingdom level − 2**.
+- **Cost:** 2 WC.
+- **DC:** the **Standard DC** for the level the army would reach (Basic Armies by Level
+  table below).
+- **Critical Success** The army gains **2 levels**, but never above kingdom level − 2.
+- **Success** The army gains **1 level**.
+- **Failure** No change. The WC is refunded.
+- **Critical Failure** No change. The WC is lost, and the army becomes weary 1 from
+  the botched drilling.
+
+**Raising an army's level:**
+- Replace its Scouting, AC, Maneuver, Morale, and attack modifiers with the new level's
+  values from the table.
+  - Use the high or low save to match the army's Maneuver and Morale.
+  - **Keep any adjustments** from its stat block. For example, an army listed as
+    "Morale +20 (low, +2 adjustment)" stays 2 above the new low save.
+- **HP and Rout Threshold** don't change with level.
+- If the new level allows **more tactics**, the army can learn them with Drill.
+- Gear and conditions carry over.
+- Each army can be Reinforced **once per day**.
+
+**Basic Armies by Level** (Appendix 3)
+
+| Level | Scouting | Standard DC | AC | High Save | Low Save | Attack | Max Tactics |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 4 | +11 | 19 | 21 | +14 | +8 | +14 | 2 |
+| 5 | +12 | 20 | 22 | +15 | +9 | +15 | 2 |
+| 6 | +14 | 22 | 24 | +17 | +11 | +17 | 2 |
+| 7 | +15 | 23 | 25 | +18 | +12 | +18 | 2 |
+| 8 | +16 | 24 | 27 | +19 | +13 | +20 | 3 |
+| 9 | +18 | 26 | 28 | +21 | +15 | +21 | 3 |
+| 10 | +19 | 27 | 30 | +22 | +16 | +23 | 3 |
+| 11 | +21 | 28 | 31 | +24 | +18 | +24 | 3 |
+| 12 | +22 | 30 | 33 | +25 | +19 | +26 | 4 |
+| 13 | +23 | 31 | 34 | +26 | +20 | +27 | 4 |
+| 14 | +25 | 32 | 36 | +28 | +22 | +29 | 4 |
+
+Skirmishers use AC 2 lower, and Maneuver and Morale 2 higher, than the table.
 
 **Offensive Gambit** (Intrigue to surprise, Warfare to intimidate, against the
 target army's Scouting DC). Your army must be in the same hex as the enemy or

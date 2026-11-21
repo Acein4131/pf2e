@@ -90,6 +90,7 @@ Fame/Infamy can be spent to reroll a Command.
 | **Recover Army** | see table below · Control (+5 vs defeated) · damaged/defeated: army must not move today | Condition −2 (or +2 HP) | Condition −1 (or +1 HP) | — | +1 Unrest. If recovering from defeated, the army is destroyed |
 | **Drill** | Scholarship, Warfare · tactic's Training DC · army rests all day | Learns tactic, efficient | Learns tactic | — | Weary +1 |
 | **Outfit** | Trade (1 WC per 5 RP) or Warfare (captured gear; needs a win in the last 3 days) · Control | Outfitted, efficient | Outfitted | Fails, WC refunded | Fails, WC lost |
+| **Outfit: Reinforce** | Trade, Warfare · Standard DC of the new level · 2 WC; in a friendly settlement or depot; army doesn't move; army below kingdom level −2 | +2 levels (cap: kingdom level −2) | +1 level | No change, WC refunded | No change, WC lost, weary 1 |
 | **Offensive Gambit** | Intrigue, Warfare · target's Scouting DC · same or adjacent hex; attack at Dusk | +2 initiative, and one enemy army shaken 1 | +2 initiative | No edge | Enemy +4 initiative |
 | **Sabotage** | Intrigue, Magic · target's Scouting DC (+5 fortified or walled); depot uses its own DC | 1 dmg, or weary +2, or destroy a depot | Weary or shaken +1 | — | Strain +1, War Clock +1 |
 | **Turn Their Coin** | Statecraft, or Trade (pay 2 WC first) · Standard DC + 2 · Mercenary armies only | +2 Doubt | +1 Doubt | WC lost | War Clock +1, can't target that army for 3 days |
@@ -103,6 +104,9 @@ Fame/Infamy can be spent to reroll a Command.
 
 **Doubt:** at 2 Doubt, the army deserts at the next Dusk. Pay **4 WC** right then and
 it joins you instead.
+
+**Reinforcing:** use the new level's numbers from the Basic Armies by Level table
+(`rules.md` §4). Keep the army's stat block adjustments. HP doesn't change.
 
 **Recover Army skills** (Appendix 3)
 
