@@ -176,6 +176,9 @@ enemy-held hex.
   then Tok-Nikrat.
 - **Hunt** (Speartooth's Pride): attack your nearest army within 4 hexes that isn't
   in a swamp.
+- **Hunt the Crown** (Glenebon Bounty Hunters): move toward the PCs' party. If they
+  catch the PCs without an army, run a Severe 11 night encounter. With an army, it's a
+  Clash, and the hunters go straight for the PCs.
 
 ### Raid (Defense vs raider's Standard DC)
 
@@ -281,7 +284,7 @@ on Night 5, and so on).
 | --- | --- |
 | 4 | **Iron Curfew:** −1 banked LP. |
 | 6 | **Pay Convoy** sets out (Mission 7). |
-| 8 | **A Price on Their Heads:** Posture becomes Offensive, and bounty hunters attack. |
+| 8 | **A Price on Their Heads:** Posture becomes Offensive, and the Glenebon Bounty Hunters (Army 9) enter from the southwest to hunt the PCs. |
 | 12 | **Pitax's Loan:** Siege Battery arrives at Fort Drelev. |
 | 16 | **The Wall Is Finished:** Posture becomes Total War, and the fort's wall gap closes. |
 | 20 | **Armag's Gift:** Tiger Lord Warband arrives. |

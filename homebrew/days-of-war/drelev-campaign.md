@@ -673,6 +673,49 @@ behind this war.
 the PCs **defeat** it (reduce it to 0 HP), lose 2 banked Liberation Points. Routing it
 costs nothing.
 
+**GLENEBON BOUNTY HUNTERS** — ARMY 9
+*NE Skirmisher, Mercenary*
+**Scouting** +20 (+2 adjustment: professional trackers); **Recruitment DC** 26;
+**Consumption** 1
+**Description** Manhunters, slavers, and head-takers from the lawless dales of the
+Glenebon Uplands and Lowlands. They're the sort of folk Pitax pays to bring back
+deserters and escaped debtors. Drelev's bounty on the PCs has drawn them north in
+a loose company of a hundred riders and trackers, each one hoping to be the one who
+collects. They carry weighted nets, bolas, manacles, and saps. They want the PCs
+**alive**, because the price for live captives is double.
+**AC** 26; **Maneuver** +23 (high); **Morale** +17 (low)
+**HP** 4 (RT 2)
+**Melee** saps and short swords +21; **Ranged** crossbows, nets, and bolas +21 (5 shots)
+**Tactics** Keen Eyed, Live off the Land
+**Take Them Alive** [two-actions] (unique tactic) The hunters throw nets and bolas at a
+non-distant enemy army. Attempt a ranged Strike. It deals no damage. Instead, a hit
+makes the target **mired 1**, and a critical hit makes it **mired 2** and **shaken 1**,
+as officers are dragged off in chains.
+**Cut Off the Head** (unique tactic) Whenever the PCs are present in a battle with the
+Bounty Hunters, the hunters target the PCs, not the armies. Strike the Commander
+happens **automatically**, with the hunters' commander and their best catchers coming
+for the PCs. Run it as a Moderate–Severe 11 encounter in which the hunters try to
+knock the PCs out and drag them away rather than kill them. The usual Strike the
+Commander result adjustment applies.
+**Paid on Delivery** (unique) The hunters draw no pay from Drelev until they deliver,
+so they ignore Drelev's Pay Convoy (Mission 7). Each time 5 days pass without them
+capturing a PC, they gain **1 Doubt** as hunters drift home. *Turn Their Coin* works on
+them normally, and a PC who offers a better price gets a +2 circumstance bonus.
+**Hunt the Crown** (standing order) Each Dusk, the hunters move toward the **PCs' party**,
+not your armies. They know where the PCs are if any of their Scouting results beat the
+party's Stealth DC that day; otherwise they move toward the PCs' last known hex.
+- **The PCs are alone** (no friendly army in the hex) when the hunters reach them: run
+  an encounter at night (Severe 11) instead of a Clash. If the PCs win, the army takes
+  1 damage and becomes shaken 1.
+- **The PCs are with an army:** a normal Clash, with *Cut Off the Head*.
+**Commander** **Orsik Halvane, "the Collector"** (an invented NPC). He's a scarred,
+soft-spoken Glenebon headhunter who keeps a ledger of every bounty he has ever claimed.
+Use a level 11 ranger or rogue NPC with nets and a Sap (or Ameon Trask's statistics,
+p. 298, with Snare and Hunt Prey abilities in place of Twin Feint). If Orsik is
+captured or killed, the army immediately gains 2 Doubt.
+**Arrival** At War Clock 8 (*A Price on Their Heads*), the hunters enter from the
+**southwestern map edge**, out of Glenebon. They set out at once after the PCs.
+
 ### Drelev's supply
 
 Enemy armies draw supply from **Fort Drelev**, the **Forward Camp**, and any captured
@@ -704,7 +747,7 @@ Dawn through the fiction: a messenger, smoke, a rumor, a corpse on a gibbet.
 | --- | --- | --- |
 | **4** | *Iron Curfew* | Drelev tightens his grip on the town. Lose 1 banked LP. When Part 2's infiltration begins, every infiltration DC (p. 303) is +1. |
 | **6** | *The Pay Convoy* | A Pitaxian wagon train of silver sets out to pay the mercenaries. **Mission 7** becomes available. |
-| **8** | *A Price on Their Heads* | Posture → **Offensive**. Drelev posts a bounty on the PCs. On the next day they travel, they meet a band of bounty hunters (a Moderate 11 encounter of your choice). |
+| **8** | *A Price on Their Heads* | Posture → **Offensive**. Drelev posts a bounty on the PCs, and the **Glenebon Bounty Hunters** (Army 9, §4) enter from the southwestern map edge to hunt the party. |
 | **12** | *Pitax's Loan* | The **Pitax Siege Battery** arrives at Fort Drelev. |
 | **16** | *The Wall Is Finished* | Posture → **Total War**. Drelev finally closes the gap in Fort Drelev's wall (B1, p. 301). See §8: the wall now counts as a full Wooden Wall. |
 | **20** | *Armag's Gift* | The **Tiger Lord Warband** rides in from the western map edge. |
