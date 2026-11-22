@@ -503,6 +503,87 @@ Ameon Trask at Tatzlford. When Determining Victory or Loss:
 - PCs **defeated or captured** the commander: improve the result by one degree.
 - PCs **were present but didn't engage** the commander: worsen it by one degree.
 
+### Front Line and Back Line
+
+In a full War encounter, each side fights in two ranks. The **front line** holds the
+enemy off, and the **back line** shoots, bombards, and commands from behind it. To reach
+the archers, siege engines, and reserves behind a line, an attacker must either pin
+every army in that line or **break through** it.
+
+**Setting the lines.** After rolling initiative and before the first turn, each side
+secretly assigns each of its armies to its **Front Line** or **Back Line**, and then both
+sides reveal.
+- On the grid, put each side's front line in the row facing the enemy and its back line
+  in the row behind.
+- A side with only one army puts it in the front line.
+- Fortified armies and armies inside fortifications don't use lines; their fortification
+  protects them instead.
+
+**Screen.** Each front-line army has a **Screen** value: how many enemy armies it can hold
+off at once.
+
+| Army | Screen |
+| --- | --- |
+| Infantry | 2 (3 with Hold the Line) |
+| Cavalry, Skirmisher | 1 |
+| Siege | 0 |
+| Shaken 2 or worse | −1 (minimum 0) |
+| Routed, defeated, or distant | 0, and it no longer counts as part of the line |
+
+**Covered back line.** While a side's back line is **covered**, enemy armies **can't
+Advance** to engage its back-line armies. The back line is covered unless one of these
+is true:
+- **Saturated:** every army in that side's front line is engaged with **at least as many
+  enemy armies as its Screen value**. Every defender is too busy to stop anyone slipping
+  past.
+- **Collapsed:** the side has no front-line armies left that aren't routed, defeated,
+  or distant.
+
+**What being in the back line means:**
+- **Ranged Strikes against a back-line army** take a −2 circumstance penalty for range
+  and the cover of the front line. This stacks with the distant penalty.
+- **Back-line armies** can use ranged Strikes, Rally, and other actions normally. They can
+  only make **melee** Strikes against armies that have reached them.
+- An army in the back line that becomes engaged **stays** in the back line. The enemy has
+  reached it.
+
+**Moving between lines:**
+- **Step Up** [one-action] (maneuver): an unengaged back-line army moves to the front
+  line.
+- **Fall Back** [one-action] (maneuver): an unengaged front-line army moves to the back
+  line. An engaged army must Disengage first.
+
+**Break Through** [two-actions] (maneuver)
+**Requirement** Your army is engaged with an enemy **front-line** army, and that side's back
+line is covered.
+**Effect** Your army tries to cut through the line to the enemy behind it. Attempt a
+Maneuver check against the engaged front-line army's Maneuver DC. Cavalry gain a +2
+circumstance bonus. If your army is engaged with more than one front-line army, use
+the highest DC.
+- **Critical Success** You burst through. Your army stops being engaged with the front
+  line and becomes **engaged with a back-line army** of your choice. It doesn't provoke
+  reactions.
+- **Success** As critical success, but each front-line army you were engaged with can use
+  its reactions against you, such as Counterattack or Aldori Riposte.
+- **Failure** The line holds, and you remain engaged.
+- **Critical Failure** You're caught in the gap. Your army becomes **outflanked** until the
+  end of its next turn.
+
+**Special cases:**
+- **Flying armies** ignore screening. They can Advance on back-line armies even when the
+  back line is covered, but they take a −2 circumstance penalty to that Advance.
+- **Unique abilities** that start an encounter engaged, such as *Pounce from the Grass* or
+  *Swamp Charge*, can only target **front-line** armies unless the back line isn't covered.
+- **Strike the Commander:** if the enemy commander's army is in the back line, the PCs
+  must fight their way to him. Add one extra guard or creature to that encounter.
+- **Quick Clash** doesn't use lines.
+
+> **Why use it.** Lines make army composition matter. Infantry can hold a line, archers
+> and siege engines want to stand behind one, and cavalry exist to break it. A small
+> force can't screen a large one: three enemy armies against a single front-line
+> skirmisher saturate it at once. Expect your players to put the Royal Guard (Interpose)
+> up front, and the Longbows and the Siege Battery behind.
+
 ### Quick Clash
 
 Choose each side's **lead army**, the highest-level army present. Attempt a

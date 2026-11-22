@@ -211,6 +211,25 @@ enemy-held hex.
 - **PCs present:** run a full War encounter. The PCs can **Strike the Commander**:
   winning improves the result one degree, and being present without engaging worsens
   it one degree.
+- **Front and back lines** (full War encounters only, `rules.md` §9):
+  - **Setup:** after initiative, each side secretly assigns armies to its Front or Back
+    Line.
+  - **Screen:** Infantry 2 (3 with Hold the Line), Cavalry and Skirmisher 1, Siege 0.
+    Shaken 2+ gives −1. Routed, defeated, or distant armies count 0.
+  - **Covered back line:** enemies can't Advance on it until every front-line army is
+    engaged with at least its Screen value in enemies, or the front line is gone.
+    Flying armies can Advance on a covered back line at −2.
+  - **Ranged** attacks against the back line take −2.
+  - **Step Up / Fall Back** [one-action]: move an unengaged army between lines.
+  - **Break Through** [two-actions] (while engaged with the front line): Maneuver vs the
+    front-line army's Maneuver DC, +2 for cavalry.
+
+    | Result | Effect |
+    | --- | --- |
+    | Critical Success | Engage a back-line army, no reactions. |
+    | Success | Engage a back-line army; the front line gets its reactions. |
+    | Failure | No effect. |
+    | Critical Failure | Outflanked until the end of your next turn. |
 - **PCs absent:** use a **Quick Clash**. Make a Warfare check against the enemy lead
   army's Standard DC, adjusted as follows:
 
