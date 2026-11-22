@@ -176,6 +176,9 @@ enemy-held hex.
   then Tok-Nikrat.
 - **Hunt** (Speartooth's Pride): attack your nearest army within 4 hexes that isn't
   in a swamp.
+- **Prey on the Weak** (Nugrah's Mire-Kin, independent): attack the weakest army
+  (either side) or depot within 3 hexes, in or next to the Slough. They fade away from
+  higher-level armies that aren't weary, and never make Slough Checks.
 - **Hunt the Crown** (Glenebon Bounty Hunters): move toward the PCs' party. If they
   catch the PCs without an army, run a Severe 11 night encounter. With an army, it's a
   Clash, and the hunters go straight for the PCs.

@@ -49,6 +49,7 @@ Escalations triggered: ______________________
 | Hooktongue Raiders | Drelev | 8 Skr | Slough | Raid | 4/4 | | | | LotL | | |
 | Tiger Lord Outriders | Drelev | 10 Cav | (Day 2) | Raid | 4/4 | | | | | — | |
 | Speartooth's Pride | Drelev | 11 Cav | DR1 | Hunt | 6/6 | | | collar intact | | — | |
+| Nugrah's Mire-Kin | Independent | 9 Skr | Slough (hidden) | Prey | 4/4 | | | attitude: unfriendly | LotL | — | — |
 
 ## Hexes
 

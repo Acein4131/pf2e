@@ -200,6 +200,7 @@ Enemy armies are built on the Basic Armies by Level table (Appendix 3), assuming
 | Hooktongue Raiders | 8 Skirmisher | Hidden camp in Hooktongue Slough (GM places, near M'botuu) | Raid |
 | Tiger Lord Outriders | 10 Cavalry | Arrive from the western map edge at **Dusk on Day 2** | Raid |
 | Speartooth's Pride | 11 Cavalry (beasts) | Speartooth's Den (DR1) | Hunt |
+| Nugrah's Mire-Kin *(independent)* | 9 Skirmisher | Hidden lair deep in Hooktongue Slough (GM places) | Prey on the Weak |
 | *Drelev Irregulars* (if they survived Part 1) | 7 Infantry (p. 297) | Fort Drelev | Hold |
 | *Troll Marauders* (if they survived Part 1) | 8 Infantry (p. 297) | Forward Camp | Hold |
 
@@ -356,6 +357,86 @@ two) while the armies clash.
   returns to DR1 and becomes a **hostile wild army** that attacks any army, from either
   side, that enters DR1 or a neighboring hex. If the collar breaks mid-battle,
   Speartooth turns on the nearest Drelev army or commander first.
+
+### Third Force: Nugrah's Mire-Kin
+
+**Nugrah**, the Stag Lord’s father (Chapter 3, p. 182), is a fallen druid. The Green
+Faith cast him out for trying to buy back his dead wife's life with another druid's
+blood, and he turned to Gozreh's cruel, impassive side. He abused his son until the
+boy grew into the Stag Lord, who then chained the old man in the fort's cellar and
+returned the favor for years. Nugrah slipped out of that basement long ago and fled
+south into Hooktongue Slough. There he has gathered everyone who has nowhere else to
+go: Stag Lord bandits who scattered when the fort fell, deserters from both sides,
+boggard outcasts, and the beasts he calls up out of the mud. He answers to no one.
+
+**NUGRAH'S MIRE-KIN** — ARMY 9
+*CE Skirmisher (independent)*
+**Scouting** +20 (+2 adjustment: they know every channel); **Recruitment DC** 26 (Statecraft
+only, in person with Nugrah); **Consumption** 1
+**Description** A ragged warband of men with filed teeth and mud-caked furs, giant ants
+and crocodiles stalking at their heels, and stag-skull fetishes on poles. They wear
+the antlers of a dead bandit-lord's old gang as trophies. They strike from the reeds
+at dusk, drag what they can into the water, and vanish before an army can form up.
+**AC** 26; **Maneuver** +23 (high); **Morale** +15 (low, −2 adjustment: men held
+together by fear of the old man)
+**HP** 4 (RT 2)
+**Melee** clubs, spears, and beasts' jaws +21; **Ranged** slings and poisoned darts +21
+(5 shots)
+**Tactics** Live off the Land, Reckless Flankers
+**Children of the Mire** (unique tactic) The Mire-Kin never make Slough Checks. They
+ignore the difficult-terrain battlefield penalty in Slough hexes, and they treat swamp
+as difficult terrain (not greater difficult) for movement.
+**Gozreh's Wrath** [two-actions] (unique tactic, once per war encounter) Nugrah calls
+down a squall of black rain and lightning. Every enemy army attempts a Maneuver check
+against DC 26. On a failure, it's mired 1. On a critical failure, it's mired 2 and
+takes 1 damage. The squall counts as *Rain* (Appendix 3 battlefield feature) for the
+rest of the encounter.
+**Drag Them Under** (unique tactic) The Mire-Kin gain a +2 circumstance bonus to melee
+Strikes against **mired** armies. A critical hit against a mired army also makes it
+shaken 1.
+**Prey on the Weak** (standing order) The Mire-Kin raid anyone, Drelev included. Each
+Dusk, they move toward the weakest target within 3 hexes that's **in or next to the
+Slough**: the army with the lowest HP or highest weary, then a depot, Tok-Nikrat, or
+M'botuu. They attack armies as a Clash and raid depots and settlements as normal
+(`rules.md` §7). They never leave the Slough's edge. If outmatched (an army of higher
+level that isn't weary), they fade back into the reeds instead.
+
+#### Nugrah himself
+
+**Commander** **Nugrah**. His p. 182 statistics are far too weak for this point in the
+campaign. Years in the swamp have changed him. Use a **level 10 druid of Gozreh** (storm
+order) with *summon animal*, *meld into stone*, *spider climb*, and *lightning bolt*.
+He fights from the ceiling of the canopy and the safety of the water, just as he did in
+the cellar.
+- **Nugrah falls:** if he's killed or captured, the Mire-Kin immediately become shaken
+  2. At the next Dusk they scatter, and the army is destroyed.
+
+**How he feels about the PCs.** This is your call, and it's the most interesting thing
+about him.
+- The PCs killed the son who tormented him for years, and part of him is grateful.
+- They also rule from the fort where he was chained, and the rest of him hates that
+  place and everyone in it.
+- Treat his starting attitude as **unfriendly**.
+  - **Drelev's offer:** at War Clock 12, Drelev sends silver and offers Nugrah a
+    place in his court. Unless the PCs have already made Nugrah indifferent or better,
+    he takes it. The Mire-Kin then count as a **Drelev army** (Mercenary) and stop
+    raiding Drelev's armies.
+  - **Parley:** a PC who meets Nugrah **in person** in the Slough can Make an
+    Impression or Request (Diplomacy, or Intimidation to Coerce).
+    - **Indifferent:** he stops raiding the PCs' depots and settlements.
+    - **Friendly:** the Mire-Kin act as *Swamp Guides* for any of the PCs' armies in
+      their hex, and harass Drelev's armies in the Slough.
+    - **Helpful:** they join the PCs as an allied specialized army that won't leave
+      the Slough.
+  - **Things that might move him:** the Stag Lord's antlered helm, proof of his son's
+    death, or a promise that the cellar will be walled up forever. Burning the cellar is
+    another possibility.
+
+> **Or make him the Hooktongue Raiders' true master.** If you'd rather not add another
+> army, give Nugrah command of the Hooktongue Raiders (§4). Add *Children of the Mire*,
+> *Gozreh's Wrath*, and *Drag Them Under* to their stat block, and raise them to level 9
+> with this block's numbers. Then reclaiming M'botuu still strips their boggard guides,
+> but Nugrah's own swamp-craft keeps them moving.
 
 ### Allied Relief from Restov
 
